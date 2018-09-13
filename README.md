@@ -7,25 +7,31 @@ Time Travel game
 * solving riddles in coop
 * only 2player, no singleplayer
 
-__(Time)Setting:__ different times, being able to go back, through doors splitscreen if player is too far away or in a different time zone
+### Perspective:
+Platform?
 
-__perspective:__ Platform?
+### Antiheros:
+ * strangers
+ * can pick gender inventory
 
-__situated in the present time:__ just past Low-fantasy
+### Enemy:
+ * bad guy, short interactions with him, meet him several times through the game
+ * bad guy is an older version of one of the antiheros, wants to bring more action/adventure in their life and create a better friendship
 
-__antiheros:__ strangers, can pick gender inventory
+### Story:
+ * strange job offer, go through weird door into a strange dark room with other door where light shines through. Through that door land in sunny place in the past.
+ * finding out stuff through talking with npcs
+ * note in the beginning _job interview starts now_
+ * all over the world
 
-__enemy:__ bad guy, short interactions with him, meet him several times through the game
-bad guy is an older version of one of the antiheros, wants to bring more action/adventure in their life and create a better friendship
+### (Time)Setting:
+ * just past Low-fantasy
+ * starts in present can travel to different times
+ * being able to go back (retrace your steps)
+ * splitscreen if player is too far away or in a different time zone
 
-__story:__
-strange job offer, go through weird door into a strange dark room with other door where light shines through. Through that door land in sunny place in the past.
-finding out stuff through talking with npcs
-note in the beginning „job interview starts now“
-all over the world
-
-__starting time:__
- * wild west
+#### Timezones:
+ * wild west _(starting time)_
  * ancient greek
  * egypt
  * 70s
