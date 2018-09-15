@@ -11,17 +11,28 @@ config_version=3
 [application]
 
 config/name="Zelda like"
-run/main_scene="res://areas/test.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=160
-window/size/height=144
+window/size/width=512
+window/size/height=512
 window/size/test_width=640
 window/size/test_height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[input]
+
+wasd_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+wasd_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+wasd_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+wasd_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
 
 [rendering]
 
