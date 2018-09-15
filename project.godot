@@ -16,4 +16,4 @@ _global_script_class_icons={
 [application]
 
 config/name="Awesome Game"
-run/main_scene="res://assets/DemoLevel.tscn"
+run/main_scene="res://scenes/DemoLevel.tscn"
