@@ -1,23 +1,16 @@
 extends "res://engine/entity.gd"
 
-<<<<<<< HEAD
 const SPEED = 70
 const TYPE = "PLAYER"
 var state = "default"
-=======
 enum keymaps {
     wasd,
     arrows,
 }
 
-export (int) var speed = 70
 export (keymaps) var keymap = keymaps.arrows
->>>>>>> 9f82714eaa2064c4e087a227f6c19dd549b578c1
-
-
 
 func _physics_process(delta):
-<<<<<<< HEAD
 	match state:
 		"default":
 			state_default()
@@ -53,19 +46,6 @@ func state_swing():
 	damage_loop()
 
 func controls_loop():
-	var LEFT = Input.is_action_pressed("ui_left")
-	var RIGHT = Input.is_action_pressed("ui_right")
-	var UP = Input.is_action_pressed("ui_up")
-	var DOWN = Input.is_action_pressed("ui_down")
-	
-	movedir.x = -int(LEFT) + int(RIGHT)
-	movedir.y = -int(UP) + int(DOWN)
-	
-=======
-    controls_loop()
-    movement_loop()
-
-func controls_loop():
     var keymap_name = 'ui'
     if keymap == keymaps.wasd:
         keymap_name = 'wasd'
@@ -78,7 +58,3 @@ func controls_loop():
     movedir.x = -int(LEFT) + int(RIGHT)
     movedir.y = -int(UP) + int(DOWN)
     
-func movement_loop():
-    var motion = movedir.normalized() * speed
-    move_and_slide(motion, Vector2(0,0))
->>>>>>> 9f82714eaa2064c4e087a227f6c19dd549b578c1

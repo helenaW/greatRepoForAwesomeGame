@@ -27,7 +27,6 @@ window/size/test_height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
-<<<<<<< HEAD
 [importer_defaults]
 
 texture={
@@ -54,8 +53,6 @@ texture={
 a=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
 b=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":89,"unicode":0,"echo":false,"script":null)
-=======
-[input]
 
 wasd_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
  ]
@@ -64,7 +61,6 @@ wasd_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name"
 wasd_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
  ]
 wasd_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
->>>>>>> 9f82714eaa2064c4e087a227f6c19dd549b578c1
  ]
 
 [rendering]

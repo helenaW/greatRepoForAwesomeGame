@@ -1,6 +1,5 @@
 [gd_scene load_steps=4 format=2]
 
-<<<<<<< HEAD
 [ext_resource path="res://enemies/stalfos.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/wall.tres" type="TileSet" id=3]
@@ -19,15 +18,7 @@ position = Vector2( 72.85, 72.3 )
 
 mode = 0
 tile_set = ExtResource( 3 )
-=======
-[ext_resource path="res://tiles/wall.tres" type="TileSet" id=1]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 
-[node name="Test" type="TileMap"]
-
-mode = 0
-tile_set = ExtResource( 1 )
->>>>>>> 9f82714eaa2064c4e087a227f6c19dd549b578c1
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
