@@ -250,8 +250,6 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 speed = 70
 keymap = null
-<<<<<<< HEAD
-=======
 
 [node name="anim" type="AnimationPlayer" parent="." index="0"]
 
@@ -274,7 +272,6 @@ anims/walkright = SubResource( 11 )
 anims/walkup = SubResource( 12 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
->>>>>>> master
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
