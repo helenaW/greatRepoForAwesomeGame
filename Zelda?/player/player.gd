@@ -40,14 +40,14 @@ func state_default():
     else:
         anim_switch("idle")
         
-    if Input.is_action_just_pressed("a"):
+    if Input.is_action_just_pressed("wasd_sword"):
         use_item(preload("res://items/sword.tscn"))
 
 func state_swing():
     anim_switch("idle")
     movement_loop()
     damage_loop()
-    #movedir = dir.center
+    movedir = dir.center
 
 func controls_loop():
     var keymap_name = 'ui'
