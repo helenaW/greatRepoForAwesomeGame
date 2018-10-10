@@ -12,7 +12,7 @@ resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Viewports/SplitView/View")
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 
