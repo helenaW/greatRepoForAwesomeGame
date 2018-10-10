@@ -1,19 +1,22 @@
 extends Node
-onready var main_viewport = get_viewport()
-onready var split_viewport = $SplitViewport
-onready var main_camera = $MainCamera
-onready var split_camera = $SplitViewport/SplitCamera
-onready var world = $Test
+
+onready var main_viewport = $Viewports/MainView/View
+onready var split_viewport = $Viewports/SplitView/View
+onready var main_camera = $Viewports/MainView/View/Camera
+onready var split_camera = $Viewports/SplitView/View/Camera
+onready var world = $Viewports/MainView/View/World
 onready var player1 = world.get_node('Player 1')
 onready var player2 = world.get_node('Player 2')
 onready var split = $Split
 onready var splitter = $Splitter
 
 func _ready():
-     split_viewport.world_2d = main_viewport.world_2d
+    print(main_viewport.world_2d)
+    print(split_viewport.world_2d)
+    split_viewport.world_2d = main_viewport.world_2d
 
-     main_camera.player_target = player1
-     split_camera.player_target = player2
+    main_camera.player_target = player1
+    split_camera.player_target = player2
     
 #func _process(delta):
 #     var player_distance = player1.position.distance_to(player2.position)
