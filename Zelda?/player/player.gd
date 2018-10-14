@@ -15,12 +15,12 @@ enum keymaps {
 export (keymaps) var keymap = keymaps.arrows
 
 func _physics_process(delta):
-	match state:
+    match state:
         "default":
             state_default()
         "swing":
             state_swing()
-	keys = min(keys, 9)
+    keys = min(keys, 9)
     
     
 func state_default():

@@ -1,12 +1,20 @@
 extends Node
 
-onready var world = $World
-onready var player1 = world.get_node('Player 1')
-onready var player2 = world.get_node('Player 2')
-onready var camera = $Camera
+onready var player_1_view = $split_1
+onready var player_2_view = $split_2
+
+onready var main_view = $view
+
+onready var player_1_camera = $split_1/camera
+onready var player_2_camera = $split_2/camera
 
 
 func _ready():
-    camera.player_1 = player1
-    camera.player_2 = player2
+    player_1_view.set_world_2d(main_view.get_world_2d())
+    player_2_view.set_world_2d(main_view.get_world_2d())
+    
+    player_1_camera.player = find_node("player1")
+    player_2_camera.player = find_node("player2")
+    
+    
     
