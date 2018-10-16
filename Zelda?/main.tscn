@@ -5,7 +5,7 @@
 [ext_resource path="res://camera.gd" type="Script" id=3]
 [ext_resource path="res://viewport.gd" type="Script" id=4]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -71,7 +71,7 @@ _sections_unfolded = [ "Render Target", "Rendering" ]
 [node name="camera" type="Camera2D" parent="split_1" index="0"]
 
 anchor_mode = 1
-rotating = false
+rotating = true
 current = true
 zoom = Vector2( 1, 1 )
 limit_left = -10000000
@@ -79,8 +79,8 @@ limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 smoothing_enabled = false
 smoothing_speed = 5.0
 offset_v = 0.0
@@ -119,12 +119,12 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-_sections_unfolded = [ "Rendering" ]
+_sections_unfolded = [ "Render Target", "Rendering" ]
 
 [node name="camera" type="Camera2D" parent="split_2" index="0"]
 
 anchor_mode = 1
-rotating = false
+rotating = true
 current = true
 zoom = Vector2( 1, 1 )
 limit_left = -10000000
@@ -132,8 +132,8 @@ limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 smoothing_enabled = false
 smoothing_speed = 5.0
 offset_v = 0.0
@@ -176,5 +176,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 4 )
+split_distance = 200
 
 

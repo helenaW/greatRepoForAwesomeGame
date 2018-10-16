@@ -4,4 +4,5 @@ var player = null
 
 
 func _physics_process(delta):
-    position = player.position
+    #position = player.position
+    pass
