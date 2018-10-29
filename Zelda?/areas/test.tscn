@@ -6,16 +6,16 @@
 [ext_resource path="res://pickups/key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/key_door.tscn" type="PackedScene" id=5]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="player1" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 53.7267, 61.3033 )
+position = Vector2( 178.371, -138.127 )
 keymap = 0
 
 [node name="player2" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 82.9842, 111.443 )
+position = Vector2( -224.227, -65.9924 )
 keymap = 1
 
 [node name="enemies" parent="." index="2" instance=ExtResource( 2 )]

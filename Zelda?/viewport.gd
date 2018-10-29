@@ -1,5 +1,7 @@
 extends Control
 
+onready var MathHelper = get_node("/root/main/MathHelper")
+
 onready var player_1_view = get_node("/root/main/split_1")
 onready var player_2_view = get_node("/root/main/split_2")
 
@@ -16,17 +18,14 @@ var angle = 0
 
 func _process(delta):
     var distance = player_1.position.distance_to(player_2.position)
-    print("distance: ", distance)
     
-    angle = player_1.position.angle_to(player_2.position) - 90
+    angle = player_1.position.angle_to(player_2.position) #- 90
     
     if player_1.position.y >= player_2.position.y:
-        angle = player_1.position.angle_to(player_2.position)
-    print("angle: ", angle)
+        angle = player_1.position.angle_to(player_2.position) - 90
     
     
     var midpoint_1 = (player_1.position + player_2.position) / 2
-    print("midpoint: ", midpoint_1)   
     
     if distance > split_distance:
         var offset_1 = midpoint_1 - player_1.position
@@ -45,7 +44,7 @@ func _process(delta):
             player_2_camera.rotation = player_2_camera.rotation
         else:
             player_2_camera.position = player_2_camera.position.linear_interpolate(midpoint_2, delta)
-            #player_2_camera.rotation = player_2_view_rotation
+            # player_2_camera.rotation = angle
     else:
         draw_player_2_view = false
     
@@ -60,6 +59,12 @@ func _draw():
         Vector2(1,1),
         Vector2(1,0),
     ]
+    var uvs_split = [
+        Vector2(0,0),
+        Vector2(0,1),
+        Vector2(1,1),
+        Vector2(1,0),
+    ]
     var colors = [
         Color(1,1,1),
         Color(1,1,1),
@@ -67,6 +72,83 @@ func _draw():
         Color(1,1,1),
     ]
     
+    var intersection = null
+    var rect = [
+        [Vector2(0,0), Vector2(0,512)],
+        [Vector2(0,512), Vector2(512,512)],
+        [Vector2(512,512), Vector2(512,0)],
+        [Vector2(512,0), Vector2(0,0)],
+    ]
+    
+    var seperator_line = [
+        Vector2(256, 256),
+        Vector2(-1, 0).rotated(angle) * 512
+    ]
+    
+    
+    var split_line_points = []
+    var split_points = []
+    
+    for i in range(4):
+        split_points.append(null)
+    
+    for index in range(rect.size()):
+        var point = MathHelper.line_intersection(seperator_line, rect[index])
+        if point.x <= 512 and point.x >= 0 and point.y <= 512 and point.y >= 0:
+            if split_points[0] == null:
+                split_points[0] = point
+            else:
+                split_points[3] = point
+
+            split_line_points.append(point)
+    
+    split_points[1] = Vector2(0,0)
+    split_points[2] = Vector2(0,0)
+    
+    var a = split_points[0]
+    var b = split_points[3]
+    
+    ###
+    #  1--2
+    #  |  |
+    #  a--b
+    #  |  |
+    #  ----
+    ###
+    if a.x == 0 and b.x == 512:
+        split_points[2].x = 512
+        split_points = [
+            split_points[1],
+            a,
+            b,
+            split_points[2],
+        ]
+        uvs_split = [
+            Vector2(0,0),
+            Vector2(0,a.y/512),
+            Vector2(1,b.y/512),
+            Vector2(1,0),
+        ]
+    ###
+    #  1--b---
+    #  |  |  |
+    #  2--a---
+    ###
+    if b.y == 0 and a.y == 512:
+        split_points[2].y = 512
+        split_points = [
+            split_points[1],
+            split_points[2],
+            a,
+            b,
+        ]
+        uvs_split = [
+            Vector2(0,0),
+            Vector2(0,1),
+            Vector2(a.x/512,1),
+            Vector2(b.x/512,0),
+        ]
+
     draw_primitive(
         [
             Vector2(0,0),
@@ -79,23 +161,13 @@ func _draw():
         player_1_view.get_texture())
     
     if draw_player_2_view:
-        draw_set_transform(Vector2(256,256), 0, Vector2(1,1))
+        # Split
         draw_primitive(
-            [
-                Vector2(-512,512),
-                Vector2(512,512),
-                Vector2(512,0),
-                Vector2(-512,0),
-            ],
+            split_points,
             colors,
-            uvs,
+            uvs_split,
             player_2_view.get_texture())
-
-    # Draw seperator
-    draw_set_transform(Vector2(256,256), angle, Vector2(1,1))
-    draw_line(
-        Vector2(-512, 0),
-        Vector2(512, 0),
-        Color(0,0,0),
-        10)
+        # Seperator        
+        draw_set_transform(Vector2(0,0), 0, Vector2(1,1))
+        draw_polyline(split_line_points, Color(1,1,1), 5)
 
