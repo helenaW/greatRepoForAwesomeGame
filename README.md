@@ -7,8 +7,11 @@ Time Travel game
 * solving riddles in coop
 * only 2player, no singleplayer
 
+### Relevant links
+ * Visual style of the game https://github.com/OrderOfThePorcupine/ProjectPorcupine/issues/34
+
 ### Perspective:
-Platform?
+top down with 45degree angled view
 
 ### Antiheros:
  * strangers
