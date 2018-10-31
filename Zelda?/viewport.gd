@@ -14,20 +14,40 @@ onready var player_2 = get_node("/root/main/view/world/player2")
 export var split_distance = 200
 var draw_player_2_view = false
 var angle = 0
+var player_distance = 0
 
+func give_perpendicular_vector(vector):
+    if vector.x != 0:
+        return Vector2(-vector.y/vector.x, 1)
+    if vector.y != 0:
+        return Vector2(1, -vector.x/vector.y)
+    return null
 
 func _process(delta):
-    var distance = player_1.position.distance_to(player_2.position)
+    player_distance = player_1.position.distance_to(player_2.position)
     
-    angle = player_1.position.angle_to(player_2.position) #- 90
+    var v = player_1.position-player_2.position
+    var per_v = give_perpendicular_vector(v)
     
-    if player_1.position.y >= player_2.position.y:
-        angle = player_1.position.angle_to(player_2.position) - 90
     
+    
+    print(per_v.angle())
+    
+    angle = per_v.angle()
+    
+    
+#    angle = abs(player_1.position.angle_to_point(player_2.position) - PI/2)
+#    if player_1.position.y <= player_2.position.y:
+#        angle = acos(player_distance/x_distance)
+#    else:
+#        angle = asin(player_distance/x_distance) - PI/2
+    
+    print(rad2deg(angle))
+        
     
     var midpoint_1 = (player_1.position + player_2.position) / 2
     
-    if distance > split_distance:
+    if player_distance > split_distance:
         var offset_1 = midpoint_1 - player_1.position
         offset_1.x = clamp(offset_1.x, -split_distance/2, split_distance/2)
         offset_1.y = clamp(offset_1.y, -split_distance/2, split_distance/2)
@@ -71,8 +91,6 @@ func _draw():
         Color(1,1,1),
         Color(1,1,1),
     ]
-    
-    var intersection = null
     var rect = [
         [Vector2(0,0), Vector2(0,512)],
         [Vector2(0,512), Vector2(512,512)],
@@ -84,7 +102,6 @@ func _draw():
         Vector2(256, 256),
         Vector2(-1, 0).rotated(angle) * 512
     ]
-    
     
     var split_line_points = []
     var split_points = []
@@ -129,6 +146,7 @@ func _draw():
             Vector2(1,b.y/512),
             Vector2(1,0),
         ]
+        
     ###
     #  1--b---
     #  |  |  |
@@ -161,13 +179,19 @@ func _draw():
         player_1_view.get_texture())
     
     if draw_player_2_view:
+        
         # Split
         draw_primitive(
             split_points,
-            colors,
+            [
+                Color(1,0,1),
+                Color(1,0,1),
+                Color(1,0,1),
+                Color(1,0,1),
+            ],
             uvs_split,
             player_2_view.get_texture())
-        # Seperator        
+        # Seperator
         draw_set_transform(Vector2(0,0), 0, Vector2(1,1))
-        draw_polyline(split_line_points, Color(1,1,1), 5)
+        draw_polyline(split_line_points, Color(1,1,1), clamp(player_distance/2-split_distance, 0, 15))
 
