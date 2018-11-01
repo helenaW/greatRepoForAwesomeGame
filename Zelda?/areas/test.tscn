@@ -6,7 +6,7 @@
 [ext_resource path="res://pickups/key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/key_door.tscn" type="PackedScene" id=5]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="player1" parent="." index="0" instance=ExtResource( 1 )]
 
