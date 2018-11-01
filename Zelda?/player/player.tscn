@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player1.png" type="Texture" id=2]
+[ext_resource path="res://player/Sprite.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -253,7 +254,7 @@ extents = Vector2( 6, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 7, 8 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -290,6 +291,7 @@ texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
 frame = 1
+script = ExtResource( 3 )
 _sections_unfolded = [ "Animation" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]

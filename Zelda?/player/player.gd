@@ -1,9 +1,5 @@
 extends "res://engine/entity.gd"
 
-var texture_1 = preload("res://player/player1.png")
-var texture_2 = preload("res://player/player2.png")
-
-
 const SPEED = 70
 const TYPE = "PLAYER"
 var state = "default"
@@ -24,12 +20,6 @@ func _physics_process(delta):
         "swing":
             state_swing()
     keys = min(keys, 9)
-    
-    match keymap:
-        keymaps.arrows:
-            $Sprite.texture = texture_1
-        keymaps.wasd:
-            $Sprite.texture = texture_2
     
 func state_default():
     controls_loop()
