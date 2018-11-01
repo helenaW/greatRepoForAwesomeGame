@@ -29,10 +29,6 @@ func _process(delta):
     var v = player_1.position-player_2.position
     var per_v = give_perpendicular_vector(v)
     
-    
-    
-    print(per_v.angle())
-    
     angle = per_v.angle()
     
     
@@ -41,9 +37,6 @@ func _process(delta):
 #        angle = acos(player_distance/x_distance)
 #    else:
 #        angle = asin(player_distance/x_distance) - PI/2
-    
-    print(rad2deg(angle))
-        
     
     var midpoint_1 = (player_1.position + player_2.position) / 2
     

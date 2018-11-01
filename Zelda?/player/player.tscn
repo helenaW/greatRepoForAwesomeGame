@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
-[ext_resource path="res://player/player2.png" type="Texture" id=2]
+[ext_resource path="res://player/player1.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -20,6 +20,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:script")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -241,7 +253,7 @@ extents = Vector2( 6, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 7, 8 )
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -279,9 +291,6 @@ vframes = 2
 hframes = 8
 frame = 1
 _sections_unfolded = [ "Animation" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
