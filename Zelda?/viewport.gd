@@ -31,13 +31,6 @@ func _process(delta):
     
     angle = per_v.angle()
     
-    
-#    angle = abs(player_1.position.angle_to_point(player_2.position) - PI/2)
-#    if player_1.position.y <= player_2.position.y:
-#        angle = acos(player_distance/x_distance)
-#    else:
-#        angle = asin(player_distance/x_distance) - PI/2
-    
     var midpoint_1 = (player_1.position + player_2.position) / 2
     
     if player_distance > split_distance:
@@ -125,7 +118,8 @@ func _draw():
     #  |  |
     #  ----
     ###
-    if a.x == 0 and b.x == 512:
+    if a.x == 0 and b.x == 512 and player_2.position.y < player_1.position.y:
+        print('AA<')
         split_points[2].x = 512
         split_points = [
             split_points[1],
@@ -141,11 +135,60 @@ func _draw():
         ]
         
     ###
+    #  ----
+    #  |  |
+    #  a--b
+    #  |  |
+    #  1--2
+    ###
+    elif a.x == 0 and b.x == 512 and player_2.position.y > player_1.position.y:
+        print('AA>')
+        split_points[1].y = 512
+        split_points[2].x = 512
+        split_points[2].y = 512
+        split_points = [
+            a,
+            split_points[1],
+            split_points[2],
+            b,
+        ]
+        uvs_split = [
+            Vector2(0,a.y/512),
+            Vector2(0,1),
+            Vector2(1,1),
+            Vector2(1,b.y/512),
+        ]
+
+    ###
+    #  ---b--1
+    #  |  |  |
+    #  ---a--2
+    ###
+    elif b.y == 0 and a.y == 512 and player_2.position.x > player_1.position.x:
+        print('BB>')
+        split_points[1].x = 512
+        split_points[2].x = 512
+        split_points[2].y = 512
+        split_points = [
+            b,
+            a,
+            split_points[2],
+            split_points[1],
+        ]
+        uvs_split = [
+            Vector2(b.x/512,0),
+            Vector2(a.x/512,1),
+            Vector2(1,1),
+            Vector2(1,0),
+        ]
+        
+    ###
     #  1--b---
     #  |  |  |
     #  2--a---
     ###
-    if b.y == 0 and a.y == 512:
+    elif b.y == 0 and a.y == 512 and player_2.position.x < player_1.position.x:
+        print('BB<')
         split_points[2].y = 512
         split_points = [
             split_points[1],
