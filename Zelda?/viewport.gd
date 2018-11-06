@@ -30,6 +30,8 @@ func _process(delta):
     var per_v = give_perpendicular_vector(v)
     
     angle = per_v.angle()
+    if player_1.position.x > player_2.position.x:
+        angle += PI
     
     var midpoint_1 = (player_1.position + player_2.position) / 2
     
@@ -49,12 +51,13 @@ func _process(delta):
             player_2_camera.position = player_1_camera.position
             player_2_camera.rotation = player_2_camera.rotation
         else:
-            player_2_camera.position = player_2_camera.position.linear_interpolate(midpoint_2, delta)
-            # player_2_camera.rotation = angle
+            #player_2_camera.position = player_2_camera.position.linear_interpolate(midpoint_2, delta)
+            player_2_camera.position = midpoint_2
     else:
         draw_player_2_view = false
     
-    player_1_camera.position = player_1_camera.position.linear_interpolate(midpoint_1, delta)
+    #player_1_camera.position = player_1_camera.position.linear_interpolate(midpoint_1, delta)
+    player_1_camera.position = midpoint_1
     
     update()
     
@@ -88,49 +91,39 @@ func _draw():
         Vector2(256, 256),
         Vector2(-1, 0).rotated(angle) * 512
     ]
-    
-    var split_line_points = []
     var split_points = []
-    
-    for i in range(4):
-        split_points.append(null)
+    var static_split_points = [Vector2(), Vector2()]
+    var intersect_a = null
+    var intersect_b = null
     
     for index in range(rect.size()):
         var point = MathHelper.line_intersection(seperator_line, rect[index])
         if point.x <= 512 and point.x >= 0 and point.y <= 512 and point.y >= 0:
-            if split_points[0] == null:
-                split_points[0] = point
+            if intersect_a == null:
+                intersect_a = point
             else:
-                split_points[3] = point
-
-            split_line_points.append(point)
-    
-    split_points[1] = Vector2(0,0)
-    split_points[2] = Vector2(0,0)
-    
-    var a = split_points[0]
-    var b = split_points[3]
+                intersect_b = point
     
     ###
-    #  1--2
+    #  0--1
     #  |  |
     #  a--b
     #  |  |
     #  ----
     ###
-    if a.x == 0 and b.x == 512 and player_2.position.y < player_1.position.y:
-        print('AA<')
-        split_points[2].x = 512
+    if intersect_a.x == 0 and intersect_b.x == 512 and player_2.position.y < player_1.position.y:
+        #print('AA<')
+        static_split_points[1].x = 512
         split_points = [
-            split_points[1],
-            a,
-            b,
-            split_points[2],
+            static_split_points[0],
+            intersect_a,
+            intersect_b,
+            static_split_points[1],
         ]
         uvs_split = [
             Vector2(0,0),
-            Vector2(0,a.y/512),
-            Vector2(1,b.y/512),
+            Vector2(0,intersect_a.y/512),
+            Vector2(1,intersect_b.y/512),
             Vector2(1,0),
         ]
         
@@ -139,70 +132,71 @@ func _draw():
     #  |  |
     #  a--b
     #  |  |
-    #  1--2
+    #  0--1
     ###
-    elif a.x == 0 and b.x == 512 and player_2.position.y > player_1.position.y:
-        print('AA>')
-        split_points[1].y = 512
-        split_points[2].x = 512
-        split_points[2].y = 512
+    elif intersect_a.x == 0 and intersect_b.x == 512 and player_2.position.y > player_1.position.y:
+        #print('AA>')
+        static_split_points[0].y = 512
+        static_split_points[1].x = 512
+        static_split_points[1].y = 512
         split_points = [
-            a,
-            split_points[1],
-            split_points[2],
-            b,
+            intersect_a,
+            static_split_points[0],
+            static_split_points[1],
+            intersect_b,
         ]
         uvs_split = [
-            Vector2(0,a.y/512),
+            Vector2(0,intersect_a.y/512),
             Vector2(0,1),
             Vector2(1,1),
-            Vector2(1,b.y/512),
+            Vector2(1,intersect_b.y/512),
         ]
 
     ###
-    #  ---b--1
+    #  ---b--0
     #  |  |  |
-    #  ---a--2
+    #  ---a--1
     ###
-    elif b.y == 0 and a.y == 512 and player_2.position.x > player_1.position.x:
-        print('BB>')
-        split_points[1].x = 512
-        split_points[2].x = 512
-        split_points[2].y = 512
+    elif intersect_b.y == 0 and intersect_a.y == 512 and player_2.position.x > player_1.position.x:
+        #print('BB>')
+        static_split_points[0].x = 512
+        static_split_points[1].x = 512
+        static_split_points[1].y = 512
         split_points = [
-            b,
-            a,
-            split_points[2],
-            split_points[1],
+            intersect_b,
+            intersect_a,
+            static_split_points[1],
+            static_split_points[0],
         ]
         uvs_split = [
-            Vector2(b.x/512,0),
-            Vector2(a.x/512,1),
+            Vector2(intersect_b.x/512,0),
+            Vector2(intersect_a.x/512,1),
             Vector2(1,1),
             Vector2(1,0),
         ]
         
     ###
-    #  1--b---
+    #  0--b---
     #  |  |  |
-    #  2--a---
+    #  1--a---
     ###
-    elif b.y == 0 and a.y == 512 and player_2.position.x < player_1.position.x:
-        print('BB<')
-        split_points[2].y = 512
+    elif intersect_b.y == 0 and intersect_a.y == 512 and player_2.position.x < player_1.position.x:
+        #print('BB<')
+        static_split_points[1].y = 512
         split_points = [
-            split_points[1],
-            split_points[2],
-            a,
-            b,
+            static_split_points[0],
+            static_split_points[1],
+            intersect_a,
+            intersect_b,
         ]
         uvs_split = [
             Vector2(0,0),
             Vector2(0,1),
-            Vector2(a.x/512,1),
-            Vector2(b.x/512,0),
+            Vector2(intersect_a.x/512,1),
+            Vector2(intersect_b.x/512,0),
         ]
 
+    # Draw player_1 view
     draw_primitive(
         [
             Vector2(0,0),
@@ -214,20 +208,21 @@ func _draw():
         uvs,
         player_1_view.get_texture())
     
+    # Draw player_2 view and seperator line
     if draw_player_2_view:
-        
         # Split
         draw_primitive(
             split_points,
-            [
-                Color(1,0,1),
-                Color(1,0,1),
-                Color(1,0,1),
-                Color(1,0,1),
-            ],
+#            [
+#                Color(1,0,1),
+#                Color(1,0,1),
+#                Color(1,0,1),
+#                Color(1,0,1),
+#            ],
+            colors,
             uvs_split,
             player_2_view.get_texture())
         # Seperator
         draw_set_transform(Vector2(0,0), 0, Vector2(1,1))
-        draw_polyline(split_line_points, Color(1,1,1), clamp(player_distance/2-split_distance, 0, 15))
+        draw_polyline([intersect_a, intersect_b], Color(1,1,1), clamp(sqrt(player_distance)-sqrt(split_distance), 0, 10))
 
