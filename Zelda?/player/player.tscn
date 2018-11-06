@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player1.png" type="Texture" id=2]
-[ext_resource path="res://player/Sprite.gd" type="Script" id=3]
+[ext_resource path="res://player/player_sprite.gd" type="Script" id=3]
+[ext_resource path="res://player/player_hurt.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -11,7 +12,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -42,7 +43,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -61,7 +62,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -80,7 +81,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -99,7 +100,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -118,7 +119,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -137,7 +138,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -156,7 +157,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -175,7 +176,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -194,7 +195,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -213,7 +214,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -232,7 +233,7 @@ length = 1.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -254,7 +255,7 @@ extents = Vector2( 6, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 7, 8 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -285,7 +286,7 @@ anims/walkup = SubResource( 12 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="sprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 vframes = 2
@@ -294,13 +295,22 @@ frame = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Animation" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="sprite_hurt" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 4 )
+vframes = 2
+hframes = 8
+frame = 1
+_sections_unfolded = [ "Animation" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 visible = false
 shape = SubResource( 13 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="hitbox" type="Area2D" parent="." index="3"]
+[node name="hitbox" type="Area2D" parent="." index="4"]
 
 visible = false
 input_pickable = true

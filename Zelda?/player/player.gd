@@ -13,6 +13,12 @@ enum keymaps {
 
 export (keymaps) var keymap = keymaps.arrows
 
+func get_keymap_name(keymap):
+    match keymap:
+        keymaps.wasd: return 'wasd'
+        keymaps.arrows: return 'arrows'
+        _: return null
+
 func _physics_process(delta):
     match state:
         "default":
@@ -42,7 +48,7 @@ func state_default():
     else:
         anim_switch("idle")
         
-    if Input.is_action_just_pressed("wasd_sword"):
+    if Input.is_action_just_pressed(get_keymap_name(keymap) + "_use"):
         use_item(preload("res://items/sword.tscn"))
 
 func state_swing():
@@ -52,9 +58,7 @@ func state_swing():
     movedir = dir.center
 
 func controls_loop():
-    var keymap_name = 'ui'
-    if keymap == keymaps.wasd:
-        keymap_name = 'wasd'
+    var keymap_name = get_keymap_name(keymap)
 
     var LEFT = Input.is_action_pressed(keymap_name + "_left")
     var RIGHT = Input.is_action_pressed(keymap_name + "_right")

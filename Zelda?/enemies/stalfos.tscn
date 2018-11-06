@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/stalfos.gd" type="Script" id=1]
 [ext_resource path="res://enemies/stalfaux.png" type="Texture" id=2]
+[ext_resource path="res://enemies/stalfaux_hurt.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -10,7 +11,7 @@ length = 1.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/path = NodePath("sprite:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,7 +33,7 @@ extents = Vector2( 6, 6 )
 custom_solver_bias = 0.0
 extents = Vector2( 7, 7 )
 
-[node name="stalfos" type="KinematicBody2D" index="0"]
+[node name="stalfos" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -51,7 +52,7 @@ anims/default = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="sprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 flip_h = true
@@ -60,12 +61,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="sprite_hurt" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 3 )
+flip_h = true
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 visible = false
 shape = SubResource( 2 )
 
-[node name="hitbox" type="Area2D" parent="." index="3"]
+[node name="hitbox" type="Area2D" parent="." index="4"]
 
 visible = false
 input_pickable = true

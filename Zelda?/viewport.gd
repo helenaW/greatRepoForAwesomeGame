@@ -1,7 +1,5 @@
 extends Control
 
-onready var MathHelper = get_node("/root/main/MathHelper")
-
 onready var player_1_view = get_node("/root/main/split_1")
 onready var player_2_view = get_node("/root/main/split_2")
 
@@ -15,6 +13,24 @@ export var split_distance = 200
 var draw_player_2_view = false
 var angle = 0
 var player_distance = 0
+
+func det(a, b):
+    return a.x * b.y - a.y * b.x
+
+func line_intersection(line1, line2):
+    var xdiff = Vector2(line1[0].x - line1[1].x, line2[0].x - line2[1].x)
+    var ydiff = Vector2(line1[0].y - line1[1].y, line2[0].y - line2[1].y)
+
+    var div = det(xdiff, ydiff)
+    if div == 0:
+       return null
+
+    var d = Vector2(det(line1[0], line1[1]), det(line2[0], line2[1]))
+    var x = det(d, xdiff) / div
+    var y = det(d, ydiff) / div
+    
+    return Vector2(x, y)
+    
 
 func give_perpendicular_vector(vector):
     if vector.x != 0:
@@ -97,7 +113,7 @@ func _draw():
     var intersect_b = null
     
     for index in range(rect.size()):
-        var point = MathHelper.line_intersection(seperator_line, rect[index])
+        var point = line_intersection(seperator_line, rect[index])
         if point.x <= 512 and point.x >= 0 and point.y <= 512 and point.y >= 0:
             if intersect_a == null:
                 intersect_a = point

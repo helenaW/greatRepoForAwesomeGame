@@ -10,12 +10,14 @@ var spritedir = "down"
 
 var hitstun = 0
 var health = MAXHEALTH
-var texture_default = null
-var texture_hurt = null
+var sprite_default = null
+var sprite_hurt = null
 
 func _ready():
-    texture_default = $Sprite.texture
-    texture_hurt = load($Sprite.texture.get_path().replace(".png", "_hurt.png"))
+    sprite_default = $sprite
+    sprite_hurt = $sprite_hurt
+    
+    sprite_hurt.visible = false
 
 func movement_loop():
     var motion 
@@ -41,17 +43,24 @@ func anim_switch(animation):
     if $anim.current_animation != newanim:
         $anim.play(newanim)
         
+"""
+TODO: Should be moved out of entity, as different enteties can have different
+      damage loops.
+"""
 func damage_loop():
     if hitstun > 0:
         hitstun -= 1
-        $Sprite.texture = texture_hurt
+        sprite_default.visible = false
+        sprite_hurt.visible = true
     else:
-        $Sprite.texture = texture_default
+        sprite_default.visible = true
+        sprite_hurt.visible = false
         if TYPE == "ENEMY" && health <= 0:
             var death_animation = preload("res://enemies/enemy_death.tscn").instance()
             get_parent().add_child(death_animation)
             death_animation.global_transform = global_transform
             queue_free()
+
     for area in $hitbox.get_overlapping_areas():
         var body = area.get_parent()
         if hitstun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
