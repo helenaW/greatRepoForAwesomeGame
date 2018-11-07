@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://areas/test.tscn" type="PackedScene" id=2]
-[ext_resource path="res://camera.gd" type="Script" id=3]
+[ext_resource path="res://areas/levels/begining.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://viewport.gd" type="Script" id=4]
+[ext_resource path="res://ui/hud/hud.tscn" type="PackedScene" id=5]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -40,6 +41,16 @@ shadow_atlas_quad_3 = 4
 show_behind_parent = true
 position = Vector2( 40, 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="player_1" parent="view/world" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( -40, -10 )
+keymap = 0
+
+[node name="player_2" parent="view/world" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( -40, -10 )
+keymap = 1
 
 [node name="split_1" type="Viewport" parent="." index="1"]
 
@@ -92,7 +103,6 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 3 )
 
 [node name="split_2" type="Viewport" parent="." index="2"]
 
@@ -145,7 +155,6 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 3 )
 
 [node name="ui" type="Control" parent="." index="3"]
 
@@ -178,5 +187,7 @@ size_flags_vertical = 1
 script = ExtResource( 4 )
 _sections_unfolded = [ "Rect" ]
 split_distance = 200
+
+[node name="hud" parent="ui" index="1" instance=ExtResource( 5 )]
 
 

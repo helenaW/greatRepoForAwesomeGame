@@ -6,8 +6,8 @@ onready var player_2_view = get_node("/root/main/split_2")
 onready var player_1_camera = get_node("/root/main/split_1/camera")
 onready var player_2_camera = get_node("/root/main/split_2/camera")
 
-onready var player_1 = get_node("/root/main/view/world/player1")
-onready var player_2 = get_node("/root/main/view/world/player2")
+onready var player_1 = get_node("/root/main/view/world/player_1")
+onready var player_2 = get_node("/root/main/view/world/player_2")
 
 export var split_distance = 200
 var draw_player_2_view = false
@@ -37,7 +37,7 @@ func give_perpendicular_vector(vector):
         return Vector2(-vector.y/vector.x, 1)
     if vector.y != 0:
         return Vector2(1, -vector.x/vector.y)
-    return null
+    return Vector2()
 
 func _process(delta):
     player_distance = player_1.position.distance_to(player_2.position)
