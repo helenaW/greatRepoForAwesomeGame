@@ -1,5 +1,7 @@
 extends "res://engine/entity.gd"
 
+onready var inventory = $inventory
+
 const SPEED = 70
 const TYPE = "PLAYER"
 var state = "default"

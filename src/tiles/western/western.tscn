@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tiles/western/WayCorner.png" type="Texture" id=1]
 [ext_resource path="res://tiles/western/halfWayDown.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://tiles/western/mud2.png" type="Texture" id=5]
 [ext_resource path="res://tiles/western/mud.png" type="Texture" id=6]
 [ext_resource path="res://tiles/western/smoothWay2.png" type="Texture" id=7]
+[ext_resource path="res://tiles/western/downTransitionRight.png" type="Texture" id=8]
+[ext_resource path="res://tiles/western/wayTransition.png" type="Texture" id=9]
+[ext_resource path="res://tiles/western/downTransitionLeft.png" type="Texture" id=10]
 
 [node name="western" type="Node"]
 
@@ -44,5 +47,20 @@ texture = ExtResource( 6 )
 
 position = Vector2( 48, 48 )
 texture = ExtResource( 7 )
+
+[node name="downTransitionRight" type="Sprite" parent="." index="7"]
+
+position = Vector2( 80, 80 )
+texture = ExtResource( 8 )
+
+[node name="wayTransition" type="Sprite" parent="." index="8"]
+
+position = Vector2( 48, 80 )
+texture = ExtResource( 9 )
+
+[node name="downTransitionLeft" type="Sprite" parent="." index="9"]
+
+position = Vector2( 16, 80 )
+texture = ExtResource( 10 )
 
 

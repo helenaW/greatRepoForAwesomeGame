@@ -180,7 +180,7 @@ tracks/2/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 2, 6 )
 
-[node name="sword" type="Node2D" index="0"]
+[node name="sword" type="Node2D"]
 
 position = Vector2( -10, 3 )
 rotation = 4.71239
