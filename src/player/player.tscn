@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player1.png" type="Texture" id=2]
 [ext_resource path="res://player/player_sprite.gd" type="Script" id=3]
 [ext_resource path="res://player/player_hurt.png" type="Texture" id=4]
+[ext_resource path="res://player/inventory/inventory.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -288,6 +289,8 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
+position = Vector2( -0.329865, 0 )
+rotation = -0.00195436
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
@@ -324,5 +327,9 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" index="0"]
 
 shape = SubResource( 14 )
+
+[node name="inventory" parent="." index="5" instance=ExtResource( 5 )]
+
+visible = false
 
 
