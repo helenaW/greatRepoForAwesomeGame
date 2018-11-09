@@ -1,11 +1,18 @@
 extends StaticBody2D
 
-onready var teleport_point = $point
+onready var teleport = $teleport
+
+var entered_num = 0
 
 func _ready():
-    $area.connect("body_entered", self, "body_entered")
+    teleport.enabled = false
 
-func body_entered(body):
-    if (body.name == "player_1" || body.name == "player_2"):
-        if teleport_point:
-            body.global_position = teleport_point.global_position
+"""
+Example of doors that open after players pressing on them 3 times.
+"""
+func _on_area_body_entered(body):
+    if body.name == "player_1" || body.name == "player_2":
+        entered_num += 1
+        if entered_num == 3:
+            if teleport:
+                teleport.enabled = true

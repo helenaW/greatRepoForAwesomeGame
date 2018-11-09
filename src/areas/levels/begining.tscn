@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://areas/levels/begining.gd" type="Script" id=1]
 [ext_resource path="res://tiles/enemy_tilemap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/dev_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://pickups/key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=6]
 
-[node name="level" type="Node2D" index="0"]
+[node name="level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -41,7 +42,9 @@ position = Vector2( 1504, 256 )
 
 position = Vector2( 1328, 400 )
 
-[node name="point" type="Position2D" parent="enterance" index="3"]
+[node name="teleport" parent="enterance" index="2" instance=ExtResource( 6 )]
+
+[node name="point" type="Position2D" parent="enterance/teleport" index="1"]
 
 position = Vector2( 576, 96 )
 
@@ -49,7 +52,9 @@ position = Vector2( 576, 96 )
 
 position = Vector2( 1904, 464 )
 
-[node name="point" type="Position2D" parent="exit" index="3"]
+[node name="teleport" parent="exit" index="2" instance=ExtResource( 6 )]
+
+[node name="point" type="Position2D" parent="exit/teleport" index="1"]
 
 position = Vector2( -576, -96 )
 

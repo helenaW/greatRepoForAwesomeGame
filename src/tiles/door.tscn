@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7, 17 )
+extents = Vector2( 16, 16 )
 
 [node name="door" type="StaticBody2D"]
 
@@ -37,7 +37,6 @@ shape = SubResource( 1 )
 
 [node name="area" type="Area2D" parent="." index="2"]
 
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -49,8 +48,7 @@ audio_bus_name = "Master"
 [node name="collision" type="CollisionShape2D" parent="area" index="0"]
 
 shape = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
 
 

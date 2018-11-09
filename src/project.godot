@@ -24,10 +24,10 @@ settings/stdout/print_fps=true
 
 [display]
 
-window/size/width=512
-window/size/height=512
-window/size/test_width=640
-window/size/test_height=576
+window/size/width=1600
+window/size/height=900
+window/size/test_width=1600
+window/size/test_height=900
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

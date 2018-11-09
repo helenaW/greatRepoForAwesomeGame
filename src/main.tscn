@@ -19,8 +19,8 @@ world = null
 transparent_bg = false
 msaa = 0
 hdr = true
-disable_3d = false
-usage = 2
+disable_3d = true
+usage = 0
 debug_draw = 0
 render_target_v_flip = false
 render_target_clear_mode = 0
@@ -38,8 +38,6 @@ shadow_atlas_quad_3 = 4
 
 [node name="world" parent="view" index="0" instance=ExtResource( 2 )]
 
-show_behind_parent = true
-position = Vector2( 40, 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player_1" parent="view/world" index="6" instance=ExtResource( 3 )]
@@ -55,7 +53,7 @@ keymap = 1
 [node name="split_1" type="Viewport" parent="." index="1"]
 
 arvr = false
-size = Vector2( 512, 512 )
+size = Vector2( 1600, 900 )
 own_world = false
 world = null
 transparent_bg = false
@@ -107,7 +105,7 @@ editor_draw_drag_margin = false
 [node name="split_2" type="Viewport" parent="." index="2"]
 
 arvr = false
-size = Vector2( 512, 512 )
+size = Vector2( 1600, 900 )
 own_world = false
 world = null
 transparent_bg = false
@@ -162,15 +160,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 448.0
-margin_bottom = 448.0
+margin_right = 1536.0
+margin_bottom = 836.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="viewport" type="Control" parent="ui" index="0"]
 
