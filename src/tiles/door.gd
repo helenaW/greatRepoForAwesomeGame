@@ -8,7 +8,4 @@ func _ready():
 func body_entered(body):
     if (body.name == "player_1" || body.name == "player_2"):
         if teleport_point:
-            print('should teleport')
             body.global_position = teleport_point.global_position
-        else:
-            print('no teleport point found')
