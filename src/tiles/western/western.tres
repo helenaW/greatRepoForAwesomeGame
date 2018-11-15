@@ -1,15 +1,128 @@
-[gd_resource type="TileSet" load_steps=11 format=2]
+[gd_resource type="TileSet" load_steps=44 format=2]
 
 [ext_resource path="res://tiles/western/WayCorner.png" type="Texture" id=1]
 [ext_resource path="res://tiles/western/halfWayDown.png" type="Texture" id=2]
-[ext_resource path="res://tiles/western/smoothWay.png" type="Texture" id=3]
-[ext_resource path="res://tiles/western/LWay.png" type="Texture" id=4]
-[ext_resource path="res://tiles/western/mud2.png" type="Texture" id=5]
-[ext_resource path="res://tiles/western/mud.png" type="Texture" id=6]
-[ext_resource path="res://tiles/western/smoothWay2.png" type="Texture" id=7]
-[ext_resource path="res://tiles/western/downTransitionRight.png" type="Texture" id=8]
-[ext_resource path="res://tiles/western/wayTransition.png" type="Texture" id=9]
-[ext_resource path="res://tiles/western/downTransitionLeft.png" type="Texture" id=10]
+[ext_resource path="res://tiles/western/barrel.png" type="Texture" id=3]
+[ext_resource path="res://tiles/western/grass1.png" type="Texture" id=4]
+[ext_resource path="res://tiles/western/grass2.png" type="Texture" id=5]
+[ext_resource path="res://tiles/western/hillTopRight.png" type="Texture" id=6]
+[ext_resource path="res://tiles/western/stone1.png" type="Texture" id=7]
+[ext_resource path="res://tiles/western/stone2.png" type="Texture" id=8]
+[ext_resource path="res://tiles/western/stone3.png" type="Texture" id=9]
+[ext_resource path="res://tiles/western/hillBot.png" type="Texture" id=10]
+[ext_resource path="res://tiles/western/hillBotLeft.png" type="Texture" id=11]
+[ext_resource path="res://tiles/western/hillMidRight.png" type="Texture" id=12]
+[ext_resource path="res://tiles/western/smoothWay.png" type="Texture" id=13]
+[ext_resource path="res://tiles/western/hillBotRight.png" type="Texture" id=14]
+[ext_resource path="res://tiles/western/hillTopLeft.png" type="Texture" id=15]
+[ext_resource path="res://tiles/western/hillTop.png" type="Texture" id=16]
+[ext_resource path="res://tiles/western/LWay.png" type="Texture" id=17]
+[ext_resource path="res://tiles/western/mud2.png" type="Texture" id=18]
+[ext_resource path="res://tiles/western/mud.png" type="Texture" id=19]
+[ext_resource path="res://tiles/western/smoothWay2.png" type="Texture" id=20]
+[ext_resource path="res://tiles/western/downTransitionRight.png" type="Texture" id=21]
+[ext_resource path="res://tiles/western/wayTransition.png" type="Texture" id=22]
+[ext_resource path="res://tiles/western/downTransitionLeft.png" type="Texture" id=23]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 6, -12, 10, -8, 10, 7, 3, 12, -3, 12, -10, 7, -10, -8, -5, -12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, 10, -16, 9, -11, 9, -13, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -10, 13, -13, 10, -11, 9, -9, 11 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -10, 13, -9, 11, -9, 16, -10, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -11, 12, 0, 12, 8, 6, 15, -10, 15, -15, 11, -15, -4, -6, -11 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 13, 1, 13, 10, 8, 10, -3, -6, 7, -8, 9, -7 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -3, -6, 0, -15, 5, -15, 7, -12, 7, -8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 8, 14, 5, 16, -2, 16, -11, 11, -11, 2, -7, -8, -5, -8, -3, -6, 8, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 5, -13, 11, -7, 11, 4, 3, 11, -8, 11, -15, 4, -15, -4, -3, -13 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16.5685, 11.769 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 8, -16, 11, -16, 11, -10, 8, 13 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 16, 13, 8, 13, 11, -10, 16, -10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -10, 16, -10, -16, -9, -16, -9, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -12, 13, -16, 13, -16, -10, -12, -10, -9, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -10, -13, -10, -16, -9, -16, -9, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -9, 10, -12, -10, -10, -13 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 16, 9, 16, 10, 11, 10, 9, 9 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 9, 9, 11, 10, 10, 11, 8, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 8, 16, 8, 10, 10, 11, 10, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -16, 9, 16, 9, 16, 10, -16, 10 )
 
 [resource]
 
@@ -32,7 +145,7 @@
 1/navigation_offset = Vector2( 16, 16 )
 1/shapes = [  ]
 2/name = "path_smooth"
-2/texture = ExtResource( 3 )
+2/texture = ExtResource( 13 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 32, 32 )
@@ -41,7 +154,7 @@
 2/navigation_offset = Vector2( 16, 16 )
 2/shapes = [  ]
 3/name = "path_l"
-3/texture = ExtResource( 4 )
+3/texture = ExtResource( 17 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 32, 32 )
@@ -50,7 +163,7 @@
 3/navigation_offset = Vector2( 16, 16 )
 3/shapes = [  ]
 4/name = "mud"
-4/texture = ExtResource( 5 )
+4/texture = ExtResource( 18 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 32, 32 )
@@ -59,7 +172,7 @@
 4/navigation_offset = Vector2( 16, 16 )
 4/shapes = [  ]
 5/name = "mud_2"
-5/texture = ExtResource( 6 )
+5/texture = ExtResource( 19 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 32, 32 )
@@ -68,7 +181,7 @@
 5/navigation_offset = Vector2( 16, 16 )
 5/shapes = [  ]
 6/name = "path_smooth_2"
-6/texture = ExtResource( 7 )
+6/texture = ExtResource( 20 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 32, 32 )
@@ -77,7 +190,7 @@
 6/navigation_offset = Vector2( 16, 16 )
 6/shapes = [  ]
 7/name = "downTransitionRight"
-7/texture = ExtResource( 8 )
+7/texture = ExtResource( 21 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 32, 32 )
@@ -86,7 +199,7 @@
 7/navigation_offset = Vector2( 16, 16 )
 7/shapes = [  ]
 8/name = "wayTransition"
-8/texture = ExtResource( 9 )
+8/texture = ExtResource( 22 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 32, 32 )
@@ -95,7 +208,7 @@
 8/navigation_offset = Vector2( 16, 16 )
 8/shapes = [  ]
 9/name = "downTransitionLeft"
-9/texture = ExtResource( 10 )
+9/texture = ExtResource( 23 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 32, 32 )
@@ -103,4 +216,221 @@
 9/occluder_offset = Vector2( 16, 16 )
 9/navigation_offset = Vector2( 16, 16 )
 9/shapes = [  ]
+10/name = "barrel"
+10/texture = ExtResource( 3 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 32, 32 )
+10/is_autotile = false
+10/occluder_offset = Vector2( 16, 16 )
+10/navigation_offset = Vector2( 16, 16 )
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+11/name = "grass1"
+11/texture = ExtResource( 4 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 32, 32 )
+11/is_autotile = false
+11/occluder_offset = Vector2( 16, 16 )
+11/navigation_offset = Vector2( 16, 16 )
+11/shapes = [  ]
+12/name = "grass2"
+12/texture = ExtResource( 5 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 32, 32 )
+12/is_autotile = false
+12/occluder_offset = Vector2( 16, 16 )
+12/navigation_offset = Vector2( 16, 16 )
+12/shapes = [  ]
+13/name = "hillTopRight"
+13/texture = ExtResource( 6 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 0, 32, 32 )
+13/is_autotile = false
+13/occluder_offset = Vector2( 16, 16 )
+13/navigation_offset = Vector2( 16, 16 )
+13/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+14/name = "stone1"
+14/texture = ExtResource( 7 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 32, 32 )
+14/is_autotile = false
+14/occluder_offset = Vector2( 16, 16 )
+14/navigation_offset = Vector2( 16, 16 )
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+15/name = "stone2"
+15/texture = ExtResource( 8 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 0, 32, 32 )
+15/is_autotile = false
+15/occluder_offset = Vector2( 16, 16 )
+15/navigation_offset = Vector2( 16, 16 )
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+16/name = "stone3"
+16/texture = ExtResource( 9 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 32, 32 )
+16/is_autotile = false
+16/occluder_offset = Vector2( 16, 16 )
+16/navigation_offset = Vector2( 16, 16 )
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+17/name = "hillBot"
+17/texture = ExtResource( 10 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 32, 32 )
+17/is_autotile = false
+17/occluder_offset = Vector2( 16, 16 )
+17/navigation_offset = Vector2( 16, 16 )
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 15.4315, 17.2791 )
+} ]
+18/name = "hillBotLeft"
+18/texture = ExtResource( 11 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 0, 32, 32 )
+18/is_autotile = false
+18/occluder_offset = Vector2( 16, 16 )
+18/navigation_offset = Vector2( 16, 16 )
+18/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+19/name = "hillMidRight"
+19/texture = ExtResource( 12 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 0, 0, 32, 32 )
+19/is_autotile = false
+19/occluder_offset = Vector2( 16, 16 )
+19/navigation_offset = Vector2( 16, 16 )
+19/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+20/name = "hillBotRight"
+20/texture = ExtResource( 14 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 0, 32, 32 )
+20/is_autotile = false
+20/occluder_offset = Vector2( 16, 16 )
+20/navigation_offset = Vector2( 16, 16 )
+20/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+21/name = "hillTopLeft"
+21/texture = ExtResource( 15 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 0, 0, 32, 32 )
+21/is_autotile = false
+21/occluder_offset = Vector2( 16, 16 )
+21/navigation_offset = Vector2( 16, 16 )
+21/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
+22/name = "hillTop"
+22/texture = ExtResource( 16 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 0, 0, 32, 32 )
+22/is_autotile = false
+22/occluder_offset = Vector2( 16, 16 )
+22/navigation_offset = Vector2( 16, 16 )
+22/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
+} ]
 
