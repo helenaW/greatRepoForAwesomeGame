@@ -1,7 +1,26 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://items/pickable.gd" type="Script" id=1]
-[ext_resource path="res://items/StaticCoin.png" type="Texture" id=2]
+[ext_resource path="res://items/StaticCoin.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Node2D
+
+export (bool) var pickable = true
+
+func _on_pickable_body_entered(body):
+    if pickable and (body.name == \"player_1\" || body.name ==\"player_2\"):
+        body.inventory.items.append(self.duplicate())
+        queue_free()
+
+\"\"\"
+Should be implemented by each usable item
+
+Should return true/false. True means that we keep it, false means that we destroy it?
+\"\"\"
+func use():
+    print('Tried to use item: ', self)
+    pass"
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -10,13 +29,13 @@ extents = Vector2( 16, 16 )
 
 [node name="coin" type="Node2D"]
 
-script = ExtResource( 1 )
+script = SubResource( 2 )
 pickable = true
 
 [node name="StaticCoin" type="Sprite" parent="." index="0"]
 
-position = Vector2( 16, 16 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="pickable" type="Area2D" parent="." index="1"]
 
@@ -30,8 +49,8 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickable" index="0"]
 
-position = Vector2( 16, 16 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="pickable" to="." method="_on_pickable_body_entered"]
 

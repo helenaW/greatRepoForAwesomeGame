@@ -11,11 +11,13 @@ extents = Vector2( 16, 16 )
 [node name="apple" type="Node2D"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 pickable = true
 
 [node name="StaticApple" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="pickable" type="Area2D" parent="." index="1"]
 
@@ -31,6 +33,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickable" index="0"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="pickable" to="." method="_on_pickable_body_entered"]
 

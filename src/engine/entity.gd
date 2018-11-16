@@ -69,9 +69,5 @@ func damage_loop():
             knockdir = global_transform.origin - body.global_transform.origin 
             
 func use_item(item):
-    var newItem = item.instance()
-    newItem.add_to_group(str(newItem.get_name(),self))
-    add_child(newItem)
-    if get_tree().get_nodes_in_group(str(newItem.get_name(),self)).size() > newItem.maxamount:
-        newItem.queue_free()
+    item.use(self)
     

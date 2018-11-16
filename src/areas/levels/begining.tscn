@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://areas/levels/begining.gd" type="Script" id=1]
 [ext_resource path="res://tiles/enemy_tilemap.tscn" type="PackedScene" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://tiles/door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=7]
 [ext_resource path="res://items/coin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://items/apple.tscn" type="PackedScene" id=9]
-[ext_resource path="res://items/scroll.tscn" type="PackedScene" id=10]
-[ext_resource path="res://items/heart.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/sword.tscn" type="PackedScene" id=9]
+[ext_resource path="res://items/apple.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/scroll.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/heart.tscn" type="PackedScene" id=12]
 
-[node name="level" type="Node" index="0"]
+[node name="level" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -109,15 +110,19 @@ position = Vector2( -576, -96 )
 
 position = Vector2( 928, 144 )
 
-[node name="apple" parent="." index="7" instance=ExtResource( 9 )]
+[node name="sword" parent="coin" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 144, 96 )
+
+[node name="apple" parent="." index="7" instance=ExtResource( 10 )]
 
 position = Vector2( 1040, 144 )
 
-[node name="scroll" parent="." index="8" instance=ExtResource( 10 )]
+[node name="scroll" parent="." index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 960, 192 )
 
-[node name="heart" parent="." index="9" instance=ExtResource( 11 )]
+[node name="heart" parent="." index="9" instance=ExtResource( 12 )]
 
 position = Vector2( 944, 272 )
 

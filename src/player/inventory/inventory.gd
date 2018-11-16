@@ -1,27 +1,65 @@
 extends Control
 
 onready var player = $".."
-onready var items_list = $items_list_scroll/items_list
+onready var shown_items = $shown_items
 
 var keymap
 
 var items = []
+var selected_item_index = null
+
+var visible_for = 0
+
+func get_item_in_use():
+    if selected_item_index != null:
+        return items[selected_item_index]
+    return null
 
 func _ready():
     set_process(true)
     if player:
         keymap = player.keymap
 
-
 func _process(delta):
     var keymap_name = player.get_keymap_name(keymap)
-    
-    #for child in $items_list.get_children():
-        #$items_list.remove_child(child)
-    
-    for i in range(items.size()):
-        items[i].position = Vector2(0, 32 * i)
-        items_list.add_child(items[i])
 
     if Input.is_action_just_pressed(keymap_name + "_inventory"):
-        visible = !visible
+        if items.size() != 0:
+            if selected_item_index == null or selected_item_index == items.size()-1:
+                selected_item_index = 0
+            else:
+                selected_item_index += 1
+            
+            shown_items.remove_child(shown_items.get_child(0))
+            shown_items.remove_child(shown_items.get_child(1))
+            shown_items.remove_child(shown_items.get_child(2))
+            
+            # we present 3 items, middle one is "selected_item_index"
+            for i in range(-1,2):
+                var index = selected_item_index + i
+                
+                if index < 0:
+                    index = items.size()-1
+                if index == items.size():
+                    index = 0
+                    
+                var item = items[index]
+                item.position = Vector2(16, (1+i)*32)
+                shown_items.add_child(item)
+                
+            player.set_active_item(items[selected_item_index].get_child(0).duplicate())
+    
+            visible = true
+            visible_for = 0.45
+        else:
+            selected_item_index = null
+    
+    if visible_for > 0:
+        visible_for -= delta
+    if visible and visible_for <= 0:
+        visible = false
+        
+        
+    
+    
+        

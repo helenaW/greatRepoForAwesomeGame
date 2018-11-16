@@ -1,6 +1,7 @@
 extends "res://engine/entity.gd"
 
 onready var inventory = $inventory
+onready var active_item = $active_item
 
 const SPEED = 70
 const TYPE = "PLAYER"
@@ -13,7 +14,13 @@ enum keymaps {
     arrows,
 }
 
-export (keymaps) var keymap = keymaps.arrows
+export (keymaps) var keymap = keymaps.arrows    
+
+func set_active_item(item):
+    active_item.remove_child(active_item.get_child(0))
+    item.position = Vector2()
+    item.visible = true
+    active_item.add_child(item)
 
 func get_keymap_name(keymap):
     match keymap:
@@ -51,7 +58,9 @@ func state_default():
         anim_switch("idle")
         
     if Input.is_action_just_pressed(get_keymap_name(keymap) + "_use"):
-        use_item(preload("res://items/sword.tscn"))
+        var item = inventory.get_item_in_use()
+        if item:
+            use_item(item)
 
 func state_swing():
     anim_switch("idle")
