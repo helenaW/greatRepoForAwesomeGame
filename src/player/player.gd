@@ -1,26 +1,26 @@
 extends "res://engine/entity.gd"
 
 onready var inventory = $inventory
-onready var active_item = $active_item
 
 const SPEED = 70
-const TYPE = "PLAYER"
-var state = "default"
+const TYPE = 'player'
 
-var keys = 0
+var state = "default"
 
 enum keymaps {
     wasd,
     arrows,
 }
 
-export (keymaps) var keymap = keymaps.arrows    
+export (keymaps) var keymap = keymaps.arrows
+
+onready var active_item = null
 
 func set_active_item(item):
-    active_item.remove_child(active_item.get_child(0))
-    item.position = Vector2()
-    item.visible = true
-    active_item.add_child(item)
+    if active_item == null:
+        active_item = $active_item
+    active_item.replace_by(item)
+    active_item = item
 
 func get_keymap_name(keymap):
     match keymap:
@@ -34,7 +34,6 @@ func _physics_process(delta):
             state_default()
         "swing":
             state_swing()
-    keys = min(keys, 9)
     
 func state_default():
     controls_loop()
@@ -58,9 +57,8 @@ func state_default():
         anim_switch("idle")
         
     if Input.is_action_just_pressed(get_keymap_name(keymap) + "_use"):
-        var item = inventory.get_item_in_use()
-        if item:
-            use_item(item)
+        if active_item:
+            use_item(active_item)
 
 func state_swing():
     anim_switch("idle")

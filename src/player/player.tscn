@@ -289,8 +289,6 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
-position = Vector2( -0.989594, 0.659721 )
-rotation = -0.00195436
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 vframes = 2
@@ -302,11 +300,12 @@ _sections_unfolded = [ "Transform" ]
 [node name="sprite_hurt" type="Sprite" parent="." index="2"]
 
 visible = false
+scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 vframes = 2
 hframes = 8
 frame = 1
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 

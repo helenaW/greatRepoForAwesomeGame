@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const MAXHEALTH = 2
 const SPEED = 0
-const TYPE = "ENEMY"
+const TYPE = 'enemy'
 
 var movedir = Vector2(0,0)
 var knockdir = Vector2(0,0)
@@ -55,7 +55,7 @@ func damage_loop():
     else:
         sprite_default.visible = true
         sprite_hurt.visible = false
-        if TYPE == "ENEMY" && health <= 0:
+        if TYPE == 'enemy' && health <= 0:
             var death_animation = preload("res://enemies/enemy_death.tscn").instance()
             get_parent().add_child(death_animation)
             death_animation.global_transform = global_transform

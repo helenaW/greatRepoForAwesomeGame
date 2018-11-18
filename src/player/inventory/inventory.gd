@@ -22,6 +22,11 @@ func _ready():
 
 func _process(delta):
     var keymap_name = player.get_keymap_name(keymap)
+    
+    # If we picked up an item, we set it as activ e
+    if items.size() != 0 and selected_item_index == null:
+        selected_item_index = 0
+        player.set_active_item(get_item_in_use())
 
     if Input.is_action_just_pressed(keymap_name + "_inventory"):
         if items.size() != 0:
@@ -42,15 +47,15 @@ func _process(delta):
                     index = items.size()-1
                 if index == items.size():
                     index = 0
-                    
-                var item = items[index]
+                
+                var item = items[index].get_child(0).duplicate()
                 item.position = Vector2(16, (1+i)*32)
                 shown_items.add_child(item)
                 
-            player.set_active_item(items[selected_item_index].get_child(0).duplicate())
+            player.set_active_item(get_item_in_use())
     
             visible = true
-            visible_for = 0.45
+            visible_for = 0.55
         else:
             selected_item_index = null
     

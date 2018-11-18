@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://items/item.gd" type="Script" id=1]
-[ext_resource path="res://items/StaticApple.png" type="Texture" id=2]
+[ext_resource path="res://items/key.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="apple" type="Node2D"]
+[node name="key" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -16,8 +16,9 @@ pickable = true
 multiple_usages = false
 usages = 0
 
-[node name="StaticApple" type="Sprite" parent="." index="0"]
+[node name="key" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

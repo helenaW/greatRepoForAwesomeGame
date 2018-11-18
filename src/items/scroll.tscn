@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://items/pickable.gd" type="Script" id=1]
+[ext_resource path="res://items/item.gd" type="Script" id=1]
 [ext_resource path="res://items/StaticScroll.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -12,6 +12,8 @@ extents = Vector2( 16, 16 )
 
 script = ExtResource( 1 )
 pickable = true
+multiple_usages = false
+usages = 0
 
 [node name="StaticScroll" type="Sprite" parent="." index="0"]
 
@@ -33,6 +35,6 @@ audio_bus_name = "Master"
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="body_entered" from="pickable" to="." method="_on_pickable_body_entered"]
+[connection signal="body_entered" from="pickable" to="." method="add_to_inventory_event"]
 
 

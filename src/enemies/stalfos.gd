@@ -2,6 +2,7 @@ extends "res://engine/entity.gd"
 
 const SPEED = 40
 const DAMAGE = 1
+const TYPE = 'enemy'
 
 var movetimer_length = 15
 var movetimer = 0
