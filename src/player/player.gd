@@ -14,13 +14,17 @@ enum keymaps {
 
 export (keymaps) var keymap = keymaps.arrows
 
-onready var active_item = null
+onready var active_item_scene = null
 
 func set_active_item(item):
-    if active_item == null:
-        active_item = $active_item
-    active_item.replace_by(item)
-    active_item = item
+    if active_item_scene:
+        active_item_scene.queue_free()
+
+    if item != null:
+        active_item_scene = item.create_instance()
+        add_child(active_item_scene)
+    else:
+        active_item_scene = null
 
 func get_keymap_name(keymap):
     match keymap:
@@ -57,8 +61,9 @@ func state_default():
         anim_switch("idle")
         
     if Input.is_action_just_pressed(get_keymap_name(keymap) + "_use"):
-        if active_item:
-            use_item(active_item)
+        var item_in_use = inventory.get_item_in_use()
+        if item_in_use != null:
+            item_in_use.use(self, active_item_scene)
 
 func state_swing():
     anim_switch("idle")

@@ -5,14 +5,14 @@
 [ext_resource path="res://tiles/dev_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://tiles/western/western.tres" type="TileSet" id=4]
 [ext_resource path="res://tiles/door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemies/stalfos.tscn" type="PackedScene" id=7]
-[ext_resource path="res://items/sword.tscn" type="PackedScene" id=8]
-[ext_resource path="res://items/coin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://items/apple.tscn" type="PackedScene" id=10]
-[ext_resource path="res://items/scroll.tscn" type="PackedScene" id=11]
-[ext_resource path="res://items/heart.tscn" type="PackedScene" id=12]
-[ext_resource path="res://items/key.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tiles/lock/lock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/key/key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/stalfos.tscn" type="PackedScene" id=9]
+[ext_resource path="res://items/heart/heart.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/coin/coin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/apple/apple.tscn" type="PackedScene" id=12]
+[ext_resource path="res://items/sword/sword.tscn" type="PackedScene" id=13]
 
 [node name="level" type="Node"]
 
@@ -87,7 +87,15 @@ _sections_unfolded = [ "Cell" ]
 
 position = Vector2( 1328, 400 )
 
-[node name="teleport" parent="enterance" index="2" instance=ExtResource( 6 )]
+[node name="lock" parent="enterance" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 0, -32 )
+
+[node name="key" parent="enterance/lock" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 208, -112 )
+
+[node name="teleport" parent="enterance" index="3" instance=ExtResource( 8 )]
 
 [node name="point" type="Position2D" parent="enterance/teleport" index="1"]
 
@@ -97,52 +105,43 @@ position = Vector2( 576, 96 )
 
 position = Vector2( 1904, 464 )
 
-[node name="teleport" parent="exit" index="2" instance=ExtResource( 6 )]
+[node name="teleport" parent="exit" index="2" instance=ExtResource( 8 )]
 
 [node name="point" type="Position2D" parent="exit/teleport" index="1"]
 
 position = Vector2( -576, -96 )
 
-[node name="stalfos" parent="." index="5" instance=ExtResource( 7 )]
+[node name="stalfos" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 1920, 576 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="stalfos2" parent="." index="6" instance=ExtResource( 7 )]
+[node name="stalfos2" parent="." index="6" instance=ExtResource( 9 )]
 
 position = Vector2( 2000, 544 )
 
-[node name="sword" parent="." index="7" instance=ExtResource( 8 )]
-
-position = Vector2( 1072, 240 )
-rotation = -1.5708
-
-[node name="coin" parent="." index="8" instance=ExtResource( 9 )]
-
-position = Vector2( 928, 144 )
-
-[node name="apple" parent="." index="9" instance=ExtResource( 10 )]
-
-position = Vector2( 1040, 144 )
-
-[node name="scroll" parent="." index="10" instance=ExtResource( 11 )]
-
-position = Vector2( 960, 192 )
-
-[node name="heart" parent="." index="11" instance=ExtResource( 12 )]
-
-position = Vector2( 944, 272 )
-
-[node name="player_1_pos" type="Position2D" parent="." index="12"]
+[node name="player_1_pos" type="Position2D" parent="." index="7"]
 
 position = Vector2( 1136, 224 )
 
-[node name="player_2_pos" type="Position2D" parent="." index="13"]
+[node name="player_2_pos" type="Position2D" parent="." index="8"]
 
 position = Vector2( 1200, 160 )
 
-[node name="key" parent="." index="14" instance=ExtResource( 13 )]
+[node name="heart" parent="." index="9" instance=ExtResource( 10 )]
 
-position = Vector2( 1520, 256 )
+position = Vector2( 1168, 192 )
+
+[node name="coin" parent="." index="10" instance=ExtResource( 11 )]
+
+position = Vector2( 1040, 192 )
+
+[node name="apple" parent="." index="11" instance=ExtResource( 12 )]
+
+position = Vector2( 976, 176 )
+
+[node name="sword" parent="." index="12" instance=ExtResource( 13 )]
+
+position = Vector2( 1027.18, 295.263 )
 
 

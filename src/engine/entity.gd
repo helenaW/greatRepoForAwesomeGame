@@ -67,7 +67,4 @@ func damage_loop():
             health -= body.get("DAMAGE")
             hitstun = 10
             knockdir = global_transform.origin - body.global_transform.origin 
-            
-func use_item(item):
-    item.use(self)
-    
+        

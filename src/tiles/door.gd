@@ -1,17 +1,15 @@
 extends StaticBody2D
 
 onready var teleport = $teleport
-
-var entered_num = 0
+onready var lock = $lock
 
 func _ready():
-    teleport.enabled = false
+    # If lock is child of door, then we use lock as enabler/disabler of teleport
+    if lock != null:
+        teleport.enabled = false
+        lock.connect("unlocked", self, "lock_unlocked")
 
-"""
-Example of doors that open after players has a key
-"""
-func _on_area_body_entered(body):
-    if body.name == "player_1" || body.name == "player_2":
-        for item in body.inventory.items:
-            if item.name == 'key':
-                teleport.enabled = true
+
+func lock_unlocked():
+    print('unlocked event')
+    teleport.enabled = true

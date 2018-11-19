@@ -1,24 +1,24 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://items/item.gd" type="Script" id=1]
-[ext_resource path="res://items/StaticHeart.png" type="Texture" id=2]
+[ext_resource path="res://items/scroll/StaticScroll.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="heart" type="Node2D"]
+[node name="scroll" type="Node2D"]
 
 script = ExtResource( 1 )
 pickable = true
-multiple_usages = false
-usages = 0
+usages = 1
+multiple_uses = true
 
-[node name="StaticHeart" type="Sprite" parent="." index="0"]
+[node name="StaticScroll" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="pickable" type="Area2D" parent="." index="1"]
 
