@@ -28,13 +28,15 @@ func get_item_by_name(item_name):
     return null
     
 func remove_item_by_name(item_name):
+    print('[Inventory] Remove item: ', item_name)
     var item = get_item_by_name(item_name)
     if item != null:
         items.erase(item)
+        print(items)
         _refresh_shown_items()
         
 func _refresh_shown_items():
-    if selected_item_index == null or selected_item_index == items.size()-1:
+    if selected_item_index == null or selected_item_index >= items.size()-1:
         selected_item_index = 0
     else:
         selected_item_index += 1
@@ -45,20 +47,23 @@ func _refresh_shown_items():
             shown_items.remove_child(child)
             child.queue_free()
     
-    # we present 3 items, middle one is "selected_item_index"
-    for i in range(-1,2):
-        var index = selected_item_index + i
-        
-        if index < 0:
-            index = items.size()-1
-        if index >= items.size():
-            index = 0
-        
-        var item_instance = items[index].create_instance()
-        var item_sprite = item_instance.get_child(0).duplicate()
-        item_sprite.position = Vector2(16, (1+i)*32)
-        shown_items.add_child(item_sprite)
-        item_instance.queue_free()
+    if items.size() > 0:
+        # we present 3 items, middle one is "selected_item_index"
+        for i in range(-1,2):
+            var index = selected_item_index + i
+            print(index, items)
+            
+            # wrap-around check
+            if index < 0:
+                index = items.size()-1
+            if index >= items.size():
+                index = 0
+            
+            var item_instance = items[index].create_instance()
+            var item_sprite = item_instance.get_child(0).duplicate()
+            item_sprite.position = Vector2(16, (1+i)*32)
+            shown_items.add_child(item_sprite)
+            item_instance.queue_free()
         
     player.set_active_item(get_item_in_use())
 

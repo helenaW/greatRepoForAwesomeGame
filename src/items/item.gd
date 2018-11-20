@@ -67,14 +67,14 @@ func add_to_inventory_event(body):
 Should be implemented by each usable item. It dose an action when player uses the item
 """
 func use(player):
-    print('[Item] Tried to use item: ', self)
+    print('[Item] Tried to use item: ', name)
 
 """
 It restores Item to what is saved in inventory
 Can be extended by items, if they have some custom properties that need to be restored
 """
 func restore(item_object):
-    print('[Item] Restoring from item_object')
+    print('[Item] Restoring from item_object: ', name)
     usages = item_object.usages
     multiple_uses = item_object.multiple_uses
     pickable = false # It's not pickable anymore as is in our inventory

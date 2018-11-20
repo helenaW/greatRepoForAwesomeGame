@@ -43,10 +43,6 @@ func anim_switch(animation):
     if $anim.current_animation != newanim:
         $anim.play(newanim)
         
-"""
-TODO: Should be moved out of entity, as different enteties can have different
-      damage loops.
-"""
 func damage_loop():
     if hitstun > 0:
         hitstun -= 1
@@ -55,16 +51,9 @@ func damage_loop():
     else:
         sprite_default.visible = true
         sprite_hurt.visible = false
-        if TYPE == 'enemy' && health <= 0:
-            var death_animation = preload("res://enemies/enemy_death.tscn").instance()
-            get_parent().add_child(death_animation)
-            death_animation.global_transform = global_transform
-            queue_free()
 
-    for area in $hitbox.get_overlapping_areas():
-        var body = area.get_parent()
-        if hitstun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
-            health -= body.get("DAMAGE")
-            hitstun = 10
-            knockdir = global_transform.origin - body.global_transform.origin 
-        
+func damage(value, from_direction):
+    if hitstun == 0:
+        health -= value
+        hitstun = 10
+        knockdir = global_transform.origin - from_direction

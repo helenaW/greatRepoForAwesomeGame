@@ -8,10 +8,5 @@ func use(player):
     
     for area in $hitbox.get_overlapping_areas():
         var body = area.get_parent()
-        
         if body.get('TYPE') == 'enemy':
-            print('hit enemy')
-            if body.hitstun == 0:
-                body.hitstun = 10
-                body.health -= damage
-                body.knockdir = body.global_transform.origin - global_transform.origin 
+            body.damage(damage, global_transform.origin)
