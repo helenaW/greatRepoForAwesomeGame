@@ -5,7 +5,7 @@ onready var lock = $lock
 
 func _ready():
     # If lock is child of door, then we use lock as enabler/disabler of teleport
-    if lock != null:
+    if lock != null and teleport != null:
         teleport.enabled = false
         lock.connect("unlocked", self, "lock_unlocked")
 

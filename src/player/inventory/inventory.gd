@@ -34,6 +34,14 @@ func remove_item_by_name(item_name):
         items.erase(item)
         _refresh_shown_items()
         
+func set_inventory_items(new_items):
+    items = new_items
+    _refresh_shown_items()
+    
+func set_selected_item(index):
+    selected_item_index = index
+    _refresh_shown_items()
+        
 func _refresh_shown_items():
     if selected_item_index == null or selected_item_index >= items.size()-1:
         selected_item_index = 0

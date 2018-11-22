@@ -37,6 +37,15 @@ class ItemObject:
         scene_instance.use(player)
         
         return true
+        
+    func create_from_save_data(save_data):
+        var item = _init(
+                    save_data.scene_path,
+                    save_data.name,
+                    save_data.usages,
+                    save_data.multiple_uses)
+        item.custom = save_data.custom
+        return item
 
 """
 ITEM

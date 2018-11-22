@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
+
+[node name="level" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="player_1_pos" type="Position2D" parent="." index="0"]
+
+position = Vector2( 29.2418, 0.04562 )
+
+[node name="player_2_pos" type="Position2D" parent="." index="1"]
+
+position = Vector2( 68.5714, 0.0822182 )
+
+
