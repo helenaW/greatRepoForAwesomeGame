@@ -32,7 +32,6 @@ func remove_item_by_name(item_name):
     var item = get_item_by_name(item_name)
     if item != null:
         items.erase(item)
-        print(items)
         _refresh_shown_items()
         
 func _refresh_shown_items():
@@ -51,7 +50,6 @@ func _refresh_shown_items():
         # we present 3 items, middle one is "selected_item_index"
         for i in range(-1,2):
             var index = selected_item_index + i
-            print(index, items)
             
             # wrap-around check
             if index < 0:

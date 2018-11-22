@@ -57,3 +57,14 @@ func damage(value, from_direction):
         health -= value
         hitstun = 10
         knockdir = global_transform.origin - from_direction
+        
+func spritedir_to_vector():
+    match spritedir:
+        'left': return Vector2(-1,0)
+        'right': return Vector2(1,0)
+        'up': return Vector2(0,-1)
+        'down': return Vector2(0,1)
+    
+func get_facing_areas():
+    $facing_hitbox.global_transform = global_transform.translated(spritedir_to_vector() * 32)
+    return $facing_hitbox.get_overlapping_areas()

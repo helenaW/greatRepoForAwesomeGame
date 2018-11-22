@@ -174,14 +174,14 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6.16018, 16 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="sword" type="Node2D"]
+[node name="sword" type="Node2D" index="0"]
 
 position = Vector2( 0.0795975, 0 )
 rotation = 4.71239

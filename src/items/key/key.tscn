@@ -1,43 +1,16 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://items/item.gd" type="Script" id=1]
-[ext_resource path="res://items/key/key.png" type="Texture" id=2]
+[ext_resource path="res://items/item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://items/key/key.gd" type="Script" id=2]
+[ext_resource path="res://items/key/key.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[node name="key" instance=ExtResource( 1 )]
 
-custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+script = ExtResource( 2 )
+lock = null
 
-[node name="key" type="Node2D"]
+[node name="sprite" parent="." index="0"]
 
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-pickable = true
-usages = 1
-multiple_uses = true
-
-[node name="key" type="Sprite" parent="." index="0"]
-
-scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="pickable" type="Area2D" parent="." index="1"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable" index="0"]
-
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[connection signal="body_entered" from="pickable" to="." method="add_to_inventory_event"]
+texture = ExtResource( 3 )
 
 

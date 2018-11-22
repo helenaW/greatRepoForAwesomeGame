@@ -89,11 +89,10 @@ position = Vector2( 1328, 400 )
 
 [node name="lock" parent="enterance" index="0" instance=ExtResource( 6 )]
 
-position = Vector2( 0, -32 )
-
 [node name="key" parent="enterance/lock" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 208, -112 )
+lock = NodePath("..")
 
 [node name="teleport" parent="enterance" index="3" instance=ExtResource( 8 )]
 
@@ -114,7 +113,7 @@ position = Vector2( -576, -96 )
 [node name="stalfos" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 1920, 576 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="stalfos2" parent="." index="6" instance=ExtResource( 9 )]
 
@@ -130,7 +129,8 @@ position = Vector2( 1200, 160 )
 
 [node name="heart" parent="." index="9" instance=ExtResource( 10 )]
 
-position = Vector2( 1168, 192 )
+position = Vector2( 1072, 128 )
+rotation = -0.00227175
 
 [node name="coin" parent="." index="10" instance=ExtResource( 11 )]
 

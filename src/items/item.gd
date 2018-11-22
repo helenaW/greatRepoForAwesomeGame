@@ -10,6 +10,7 @@ class ItemObject:
     var name
     var usages
     var multiple_uses
+    var custom = {}
     
     func _init(scene_path, name, usages, multiple_uses):
         self.scene_path = scene_path
@@ -78,10 +79,18 @@ func restore(item_object):
     usages = item_object.usages
     multiple_uses = item_object.multiple_uses
     pickable = false # It's not pickable anymore as is in our inventory
+    restore_custom(item_object)
+
+"""
+Restore custom information, this should be extended by items if they need
+to restore custom information
+Should be used in combination with "store_additional"
+"""
+func restore_custom(item_object):
+    pass
 
 """
 It stores current item state to inventory
-Can be extended by items, if they have custom properties that need to be saved
 """
 func store(inventory):
     print('[Item] Storing to inventory: ', filename, ' - ', name)
@@ -90,5 +99,14 @@ func store(inventory):
         name,
         usages,
         multiple_uses)
-
+    store_custom(item_object)
     inventory.items.append(item_object)
+
+"""
+Store custom information, this should be extended by items if they need
+to store custom information
+
+Should be used in combination with "restore_additional"
+"""
+func store_custom(item_object):
+    pass
