@@ -1,51 +1,5 @@
 extends Node2D
 
-"""
-Static representation of Item, used for Inventory system and "will"
-be used for representing items when saving/loading data
-"""
-class ItemObject:
-    var scene_path
-    var sprite_path
-    var name
-    var usages
-    var multiple_uses
-    var custom = {}
-    
-    func _init(scene_path, name, usages, multiple_uses):
-        self.scene_path = scene_path
-        self.name = name
-        self.usages = usages
-        self.multiple_uses = multiple_uses
-    
-    """
-    Creates an item instance
-    """
-    func create_instance():
-        var instance = load(scene_path).instance()
-        instance.restore(self)
-        return instance
-        
-    """
-    Returnes false if couldn't use, true if used
-    """
-    func use(player, scene_instance):
-        if multiple_uses and usages < 0:
-            return false
-        
-        scene_instance.restore(self)
-        scene_instance.use(player)
-        
-        return true
-        
-    func create_from_save_data(save_data):
-        var item = _init(
-                    save_data.scene_path,
-                    save_data.name,
-                    save_data.usages,
-                    save_data.multiple_uses)
-        item.custom = save_data.custom
-        return item
 
 """
 ITEM
@@ -103,7 +57,7 @@ It stores current item state to inventory
 """
 func store(inventory):
     print('[Item] Storing to inventory: ', filename, ' - ', name)
-    var item_object = ItemObject.new(
+    var item_object = ItemObject.create(
         filename,
         name,
         usages,
@@ -119,3 +73,17 @@ Should be used in combination with "restore_additional"
 """
 func store_custom(item_object):
     pass
+    
+"""
+Store entity (savegame)
+"""
+func store_savedata():
+    return {
+        'position': position,
+    }
+
+"""
+Restore entity (savegame)
+"""
+func restore_savedata(data):
+    position = data.position

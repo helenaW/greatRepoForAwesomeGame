@@ -42,13 +42,13 @@ _sections_unfolded = [ "GUI", "Physics" ]
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="player_1" parent="view/level" index="6" instance=ExtResource( 3 )]
+[node name="player_1" parent="view" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( -40, -10 )
 _sections_unfolded = [ "Collision", "Transform" ]
 keymap = 0
 
-[node name="player_2" parent="view/level" index="7" instance=ExtResource( 3 )]
+[node name="player_2" parent="view" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( -40, -10 )
 keymap = 1

@@ -6,8 +6,8 @@ onready var player_2_view = get_node("/root/main/split_2")
 onready var player_1_camera = get_node("/root/main/split_1/camera")
 onready var player_2_camera = get_node("/root/main/split_2/camera")
 
-onready var player_1 = get_node("/root/main/view/level/player_1")
-onready var player_2 = get_node("/root/main/view/level/player_2")
+onready var player_1 = get_node("/root/main/view/player_1")
+onready var player_2 = get_node("/root/main/view/player_2")
 
 export var split_distance = 200
 var draw_player_2_view = false

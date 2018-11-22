@@ -2,21 +2,9 @@ extends Node
 
 var save_data
 var initial_save_data = {
-    'level'    : 'levels/begining.tscn',
-    'player_1' : {
-        'inventory': {
-            'items': [],
-            'selected_item': null,
-        },
-        'position' : Vector2(),
-    },
-    'player_2' : {
-        'inventory': {
-            'items': [],
-            'selected_item': null,
-        },
-        'position' : Vector2(),
-   },
+    'level'      : 'levels/begining.tscn',
+    'persistent' : {},
+    'first_time' : true
 }
 
 
@@ -62,30 +50,25 @@ func delete_savegame():
     _write_to_file()
 
 """
-Stores player data to save_data (not saved to disk!)
+Stores all persistant nodes
 """
-func store_player(player):
-    print('[SaveGame] Storing player: ', player.name)
-    
-    save_data[player.name].inventory.items = player.inventory.items
-    save_data[player.name].inventory.selected_item = player.inventory.selected_item_index
-    save_data[player.name].position = player.position
-    
-"""
-Restores player from save_data
-"""
-func restore_player(player):
-    print('[SaveGame] Restoring player: ', player.name)
+func store_savedata():
+    save_data.persistent = {}
+    for node in get_tree().get_nodes_in_group("persistant"):
+        save_data.persistent[node.name] = node.store_savedata()
 
-    var player_save_data = save_data[player.name]
-    
-    print(player.position, player_save_data.position)
-    
-    player.inventory.set_inventory_items(player_save_data.inventory.items)
-    player.inventory.set_selected_item(player_save_data.inventory.selected_item)
-    player.position = player_save_data.position
-    
-    
+"""
+Restore all persitant nodes
+"""
+func restore_savedata(save_data):
+    for node in get_tree().get_nodes_in_group("persistant"):
+        
+        if save_data.persistent.has(node.name):
+            print(save_data.persistent[node.name], node.name)
+            node.restore_savedata(save_data.persistent[node.name])
+        elif not save_data.first_time:
+            # If not in saved data, delete
+            queue_free()
 
 """
 Stores level to save_data (not saved to disk!)

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 const MAXHEALTH = 2
 const SPEED = 0
 const TYPE = 'enemy'
@@ -58,7 +59,7 @@ func damage(value, from_direction):
         hitstun = 10
         knockdir = global_transform.origin - from_direction
         
-func spritedir_to_vector():
+func _spritedir_to_vector():
     match spritedir:
         'left': return Vector2(-1,0)
         'right': return Vector2(1,0)
@@ -66,5 +67,25 @@ func spritedir_to_vector():
         'down': return Vector2(0,1)
     
 func get_facing_areas():
-    $facing_hitbox.global_transform = global_transform.translated(spritedir_to_vector() * 32)
+    $facing_hitbox.global_transform = global_transform.translated(_spritedir_to_vector() * 32)
     return $facing_hitbox.get_overlapping_areas()
+    
+"""
+Store entity
+
+Should be extended by entities if they have custom things to save.
+"""
+func store_savedata():
+    return {
+        'health'  : health,
+        'position': position,
+    }
+
+"""
+Restore entity
+
+Should be extended by entities if they have custom things to save.
+"""
+func restore_savedata(data):
+    health = data.health
+    position = data.position

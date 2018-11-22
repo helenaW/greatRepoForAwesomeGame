@@ -8,7 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="item" type="Node2D"]
+[node name="item" type="Node2D" groups=[
+"persistant",
+]]
 
 script = ExtResource( 1 )
 pickable = true

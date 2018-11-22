@@ -81,3 +81,34 @@ func controls_loop():
     
     movedir.x = -int(LEFT) + int(RIGHT)
     movedir.y = -int(UP) + int(DOWN)
+    
+"""
+Store entity (savegame)
+"""
+func store_savedata():
+    var data = .store_savedata()
+    
+    var items = []
+    for item in inventory.items:
+        items.append(item.store_savedata())
+    
+    data.inventory = {
+        'items'        : items,
+        'active_index' : inventory.active_index,
+    }
+    return data
+
+"""
+Restore entity (savegame)
+"""
+func restore_savedata(data):
+    .restore_savedata(data)
+    
+    inventory.active_index = data.inventory.active_index
+    
+    var items = []
+    for item in data.inventory.items:
+        items.append(ItemObject.restore_savedata(item))
+        
+    inventory.set_inventory_items(items)
+        
