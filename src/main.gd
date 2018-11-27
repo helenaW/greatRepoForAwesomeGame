@@ -17,7 +17,6 @@ func _ready():
     player_1_view.set_world_2d(main_view.get_world_2d())
     player_2_view.set_world_2d(main_view.get_world_2d())
     
-
 func load_from_savedata(save_data):
     var level = load(save_data.level).instance()
     
@@ -31,7 +30,6 @@ func store_savedata():
     save_game.write_savegame()
     
 func switch_level(new_level):
-    
     level.queue_free()
     main_view.add_child(new_level)
     main_view.move_child(new_level, 0)

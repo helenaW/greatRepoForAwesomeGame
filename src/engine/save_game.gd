@@ -54,6 +54,7 @@ Stores all persistant nodes
 """
 func store_savedata():
     save_data.persistent = {}
+    save_data.first_time = false
     for node in get_tree().get_nodes_in_group("persistant"):
         save_data.persistent[node.name] = node.store_savedata()
 
@@ -61,14 +62,15 @@ func store_savedata():
 Restore all persitant nodes
 """
 func restore_savedata(save_data):
+    print('[SaveGame] Restoring from save_data')
     for node in get_tree().get_nodes_in_group("persistant"):
-        
         if save_data.persistent.has(node.name):
-            print(save_data.persistent[node.name], node.name)
+            print('[SaveGame] RESTORING node as it was found in save_data: ', node.name)
             node.restore_savedata(save_data.persistent[node.name])
         elif not save_data.first_time:
+            print('[SaveGame] DELETING node as not save_data and not first_time: ', node.name)
             # If not in saved data, delete
-            queue_free()
+            node.queue_free()
 
 """
 Stores level to save_data (not saved to disk!)

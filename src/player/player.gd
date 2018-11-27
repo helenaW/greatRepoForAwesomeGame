@@ -109,6 +109,8 @@ func restore_savedata(data):
     var items = []
     for item in data.inventory.items:
         items.append(ItemObject.restore_savedata(item))
+    
+    print(items, data.inventory.items)
         
     inventory.set_inventory_items(items)
         

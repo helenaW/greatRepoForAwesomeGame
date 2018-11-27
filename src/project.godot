@@ -19,7 +19,6 @@ config/icon="res://icon.png"
 dir="*res://engine/directions.gd"
 save_game="*res://engine/save_game.gd"
 ItemObject="*res://items/ItemObject.gd"
-main="*res://engine/main.gd"
 
 [display]
 

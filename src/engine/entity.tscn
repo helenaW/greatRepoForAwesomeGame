@@ -17,7 +17,7 @@ extents = Vector2( 16, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="entity" type="KinematicBody2D" groups=[
+[node name="entity" type="KinematicBody2D" index="0" groups=[
 "persistant",
 ]]
 
