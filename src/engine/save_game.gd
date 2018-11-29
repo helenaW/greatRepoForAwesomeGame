@@ -7,7 +7,6 @@ var initial_save_data = {
     'first_time' : true
 }
 
-
 var savegame_file = File.new()
 var save_path = "user://savegame.bin"
 
@@ -62,6 +61,8 @@ func store_savedata():
 Restore all persitant nodes
 """
 func restore_savedata(save_data):
+    var main_node = get_node("/root/main")
+    
     print('[SaveGame] Restoring from save_data')
     for node in get_tree().get_nodes_in_group("persistant"):
         if save_data.persistent.has(node.name):

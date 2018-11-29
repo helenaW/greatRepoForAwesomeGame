@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var main = get_node("/root/main")
+
 
 """
 ITEM
@@ -24,8 +26,9 @@ this way it can be added to inventory if pickable
 """
 func add_to_inventory_event(body):
     if pickable and (body.name == "player_1" || body.name =="player_2"):
-        store(body.inventory)
-        queue_free()
+        if not main.LOADING_GAME:
+            store(body.inventory)
+            queue_free()
 
 """
 Should be implemented by each usable item. It dose an action when player uses the item
