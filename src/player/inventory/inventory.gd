@@ -31,6 +31,14 @@ func remove_item_by_name(item_name):
     print('[Inventory] Remove item: ', item_name)
     var item = get_item_by_name(item_name)
     if item != null:
+        var item_index = items.find(item)
+        
+        print('[...] With index: ', item_index, ' when active is: ', active_index)
+        # If we are deleting active item, then we need to set active_index to null
+        if item_index == active_index:
+            print('do the thing!')
+            active_index = null
+        
         items.erase(item)
         _refresh_shown_items()
         
@@ -43,10 +51,11 @@ func set_selected_item(index):
     _refresh_shown_items()
         
 func _refresh_shown_items():
-    if active_index == null or active_index >= items.size()-1:
-        active_index = 0
-    else:
-        active_index += 1
+    if !items.empty():
+        if active_index == null or active_index >= items.size()-1:
+            active_index = 0
+        else:
+            active_index += 1
     
     for i in range(3):
         if shown_items.get_child_count() > 0:

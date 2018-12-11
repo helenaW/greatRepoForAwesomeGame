@@ -67,8 +67,16 @@ func _spritedir_to_vector():
         'down': return Vector2(0,1)
     
 func get_facing_areas():
+    # Move facing_hitbox to proper "square"
     $facing_hitbox.global_transform = global_transform.translated(_spritedir_to_vector() * 32)
-    return $facing_hitbox.get_overlapping_areas()
+    # Check what are we overlapping
+    var overlaping_areas = $facing_hitbox.get_overlapping_areas()
+    
+    # Position facing_hitbox back on to entity
+    $facing_hitbox.global_transform = global_transform
+    
+    # Rerurn what we found that we are overlapping
+    return overlaping_areas
     
 """
 Store entity
