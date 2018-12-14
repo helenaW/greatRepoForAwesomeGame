@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/hud/hud.gd" type="Script" id=1]
 
 [node name="hud" type="Control"]
 
@@ -14,6 +16,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="vertical" type="VBoxContainer" parent="." index="0"]
@@ -22,7 +25,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1600.0
+margin_right = 200.0
 margin_bottom = 900.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -33,25 +36,81 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="game_name" type="Label" parent="vertical" index="0"]
+[node name="save_game" type="Button" parent="vertical" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1600.0
-margin_bottom = 14.0
+margin_right = 200.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 2
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "An Awesome Game"
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save Game"
+flat = false
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="load_game" type="Button" parent="vertical" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load Game"
+flat = false
+align = 1
+
+[node name="new_game" type="Button" parent="vertical" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New Game"
+flat = false
+align = 1
+
+[connection signal="pressed" from="vertical/save_game" to="." method="_on_save_game_pressed"]
+
+[connection signal="pressed" from="vertical/load_game" to="." method="_on_load_game_pressed"]
+
+[connection signal="pressed" from="vertical/new_game" to="." method="_on_new_game_pressed"]
 
 

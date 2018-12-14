@@ -6,7 +6,7 @@ onready var shown_items = $shown_items
 var keymap
 
 var items = []
-var selected_item_index = null
+var active_index = null
 
 var visible_for = 0
 
@@ -17,8 +17,8 @@ func _ready():
     
 
 func get_item_in_use():
-    if selected_item_index != null and selected_item_index < items.size():
-        return items[selected_item_index]
+    if active_index != null and active_index < items.size():
+        return items[active_index]
     return null
 
 func get_item_by_name(item_name):
@@ -31,14 +31,29 @@ func remove_item_by_name(item_name):
     print('[Inventory] Remove item: ', item_name)
     var item = get_item_by_name(item_name)
     if item != null:
+        var item_index = items.find(item)
+        
+        # If we are deleting active item, then we need to set active_index to null
+        if item_index == active_index:
+            active_index = null
+        
         items.erase(item)
         _refresh_shown_items()
         
+func set_inventory_items(new_items):
+    items = new_items
+    _refresh_shown_items()
+    
+func set_selected_item(index):
+    active_index = index
+    _refresh_shown_items()
+        
 func _refresh_shown_items():
-    if selected_item_index == null or selected_item_index >= items.size()-1:
-        selected_item_index = 0
-    else:
-        selected_item_index += 1
+    if !items.empty():
+        if active_index == null or active_index >= items.size()-1:
+            active_index = 0
+        else:
+            active_index += 1
     
     for i in range(3):
         if shown_items.get_child_count() > 0:
@@ -47,9 +62,9 @@ func _refresh_shown_items():
             child.queue_free()
     
     if items.size() > 0:
-        # we present 3 items, middle one is "selected_item_index"
+        # we present 3 items, middle one is "active_index"
         for i in range(-1,2):
-            var index = selected_item_index + i
+            var index = active_index + i
             
             # wrap-around check
             if index < 0:
@@ -69,8 +84,8 @@ func _process(delta):
     var keymap_name = player.get_keymap_name(keymap)
     
     # If we picked up an item, we set it as active
-    if items.size() != 0 and selected_item_index == null:
-        selected_item_index = 0
+    if items.size() != 0 and active_index == null:
+        active_index = 0
         player.set_active_item(get_item_in_use())
 
     if Input.is_action_just_pressed(keymap_name + "_inventory"):
@@ -79,7 +94,7 @@ func _process(delta):
             visible = true
             visible_for = 0.55
         else:
-            selected_item_index = null
+            active_index = null
     
     if visible_for > 0:
         visible_for -= delta

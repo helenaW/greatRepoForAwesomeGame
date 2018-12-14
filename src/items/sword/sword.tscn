@@ -1,7 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://items/sword/sword.gd" type="Script" id=1]
-[ext_resource path="res://items/sword/sword.png" type="Texture" id=2]
+[ext_resource path="res://items/item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://items/sword/sword.gd" type="Script" id=2]
+[ext_resource path="res://items/sword/sword.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -176,31 +177,20 @@ tracks/2/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[node name="sword" instance=ExtResource( 1 )]
 
-custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
-
-[node name="sword" type="Node2D" index="0"]
-
-position = Vector2( 0.0795975, 0 )
-rotation = 4.71239
-z_index = 1
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-pickable = true
-usages = 1
-multiple_uses = true
+script = ExtResource( 2 )
 damage = 1
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" parent="." index="0"]
 
+position = Vector2( -4.76837e-07, 4.76837e-07 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 2
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Animation", "Transform" ]
 
-[node name="anim" type="AnimationPlayer" parent="." index="1"]
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -214,7 +204,7 @@ anims/swingup = SubResource( 4 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="hitbox" type="Area2D" parent="." index="2"]
+[node name="hitbox" type="Area2D" parent="." index="3"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -227,21 +217,5 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" index="0"]
 
 shape = SubResource( 5 )
-
-[node name="pickable" type="Area2D" parent="." index="3"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable" index="0"]
-
-shape = SubResource( 6 )
-
-[connection signal="body_entered" from="pickable" to="." method="add_to_inventory_event"]
 
 
