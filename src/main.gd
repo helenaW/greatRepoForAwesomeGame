@@ -25,6 +25,11 @@ func load_from_savedata(save_data):
     
     switch_level(level)
     
+    # Needed in case player is on top of a item spawn location
+    # without this, he picks up the item while game is being restored
+    # this ensures that it doese not happen.
+    yield(get_tree(), "idle_frame")
+
     save_game.restore_savedata(save_data)
     LOADING_GAME = false
 
