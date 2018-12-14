@@ -33,10 +33,8 @@ func remove_item_by_name(item_name):
     if item != null:
         var item_index = items.find(item)
         
-        print('[...] With index: ', item_index, ' when active is: ', active_index)
         # If we are deleting active item, then we need to set active_index to null
         if item_index == active_index:
-            print('do the thing!')
             active_index = null
         
         items.erase(item)

@@ -25,7 +25,7 @@ Loads save data from save game file
 func load_savegame():
     if not savegame_file.file_exists(save_path):
         print('[SaveGame] Loading from disk - NEW')
-        save_data = initial_save_data.duplicate()
+        initial_savedata()
         _write_to_file()
     else:
         print('[SaveGame] Loading from disk - EXISTING')
@@ -45,9 +45,18 @@ Writes fresh save_data to save game file
 """
 func delete_savegame():
     print('[SaveGame] Deleting from disk')
-    save_data = initial_save_data.duplicate()
+    initial_savedata()
     _write_to_file()
 
+"""
+Initializes save_data. Used when creating new game
+"""
+func initial_savedata():
+    print('[SaveGame] Initializing SaveData')
+    save_data = initial_save_data.duplicate()
+    
+#    for node in get_tree().get_nodes_in_group("persistant"):
+#        save_data.persistent[node.name] = node.store_savedata()
 """
 Stores all persistant nodes
 """
@@ -72,6 +81,12 @@ func restore_savedata(save_data):
             print('[SaveGame] DELETING node as not save_data and not first_time: ', node.name)
             # If not in saved data, delete
             node.queue_free()
+        elif node.name == 'player_1' or node.name == 'player_2':
+            # players are special case, as they are not part of the level, so are the same instance
+            # not recreated. for this reason we need to clear them after doing new_game
+            print('[SaveGame] FIRST TIME RESTORE node as game is loading fresh new game: ', node.name)
+            node.clear_savedata();
+
 
 """
 Stores level to save_data (not saved to disk!)

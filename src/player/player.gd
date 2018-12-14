@@ -109,8 +109,13 @@ func restore_savedata(data):
     var items = []
     for item in data.inventory.items:
         items.append(ItemObject.restore_savedata(item))
-    
-    print(items, data.inventory.items)
         
     inventory.set_inventory_items(items)
-        
+
+"""
+Clears node to "fresh" state.
+Called when save game is restore to "new_game"
+"""
+func clear_savedata():
+    inventory.active_index = null
+    inventory.set_inventory_items([])

@@ -90,3 +90,4 @@ Restore entity (savegame)
 """
 func restore_savedata(data):
     position = data.position
+    
