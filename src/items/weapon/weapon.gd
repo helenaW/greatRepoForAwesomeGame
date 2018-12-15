@@ -7,9 +7,10 @@ func _ready():
         projectile = $projectile.duplicate(Node.DUPLICATE_USE_INSTANCING)
         $projectile.queue_free()
 
+"""
+Should be extended by weapons
+"""
 func use(player):
-    .use(player)
-    
     if not projectile:
         print('[Weapon] NO PROJECTILE: ', name)
         return
