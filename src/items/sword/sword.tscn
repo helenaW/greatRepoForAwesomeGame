@@ -190,6 +190,12 @@ texture = ExtResource( 3 )
 hframes = 2
 _sections_unfolded = [ "Animation", "Transform" ]
 
+[node name="pickable" parent="." index="1"]
+
+collision_layer = 8
+collision_mask = 0
+_sections_unfolded = [ "Collision" ]
+
 [node name="anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")

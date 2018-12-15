@@ -2,7 +2,6 @@ extends "res://engine/entity.gd"
 
 const SPEED = 40
 const DAMAGE = 1
-const TYPE = 'enemy'
 
 var movetimer_length = 15
 var movetimer = 0
@@ -32,5 +31,4 @@ func damage_loop():
 
     for area in $hitbox.get_overlapping_areas():
         var body = area.get_parent()
-        if body.get("TYPE") == 'player':
-            body.damage(DAMAGE, global_transform.origin)
+        body.damage(DAMAGE, global_transform.origin)
