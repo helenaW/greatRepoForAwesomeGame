@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 const MAXHEALTH = 2
 const SPEED = 0
-const TYPE = 'enemy'
 
 var movedir = Vector2(0,0)
 var knockdir = Vector2(0,0)
@@ -59,16 +58,17 @@ func damage(value, from_direction):
         hitstun = 10
         knockdir = global_transform.origin - from_direction
         
-func _spritedir_to_vector():
+func spritedir_to_vector():
     match spritedir:
         'left': return Vector2(-1,0)
         'right': return Vector2(1,0)
         'up': return Vector2(0,-1)
         'down': return Vector2(0,1)
+        _: return Vector2()
     
 func get_facing_areas():
     # Move facing_hitbox to proper "square"
-    $facing_hitbox.global_transform = global_transform.translated(_spritedir_to_vector() * 32)
+    $facing_hitbox.global_transform = global_transform.translated(spritedir_to_vector() * 32)
     # Check what are we overlapping
     var overlaping_areas = $facing_hitbox.get_overlapping_areas()
     

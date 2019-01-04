@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 dir="*res://engine/directions.gd"
 save_game="*res://engine/save_game.gd"
 ItemObject="*res://items/ItemObject.gd"
+utils="*res://engine/utils.gd"
 
 [display]
 
@@ -89,6 +90,12 @@ wasd_inventory=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="items"
+2d_physics/layer_5="projectiles"
+
+[physics]
+
+2d/cell_size=32
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 
