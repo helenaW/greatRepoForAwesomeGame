@@ -34,6 +34,13 @@ func add_to_inventory_event(body):
 Should be implemented by each usable item. It dose an action when player uses the item
 """
 func use(player):
+    var item = player.inventory.get_item_in_use()
+    if item.multiple_uses:
+        item.usages-= 1
+        if item.usages <= 0:
+            player.inventory.remove_item(item)
+            print('[Item] Removing item as its out of usages: ', name)
+        
     print('[Item] Tried to use item: ', name)
 
 """

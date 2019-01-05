@@ -7,6 +7,7 @@
 [node name="heart" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+usages = 3
 health = 2
 
 [node name="sprite" parent="." index="0"]

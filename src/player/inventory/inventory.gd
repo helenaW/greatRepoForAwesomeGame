@@ -31,15 +31,18 @@ func remove_item_by_name(item_name):
     print('[Inventory] Remove item: ', item_name)
     var item = get_item_by_name(item_name)
     if item != null:
-        var item_index = items.find(item)
+        remove_item(item)
         
-        # If we are deleting active item, then we need to set active_index to null
-        if item_index == active_index:
-            active_index = null
-        
-        items.erase(item)
-        _refresh_shown_items()
-        
+func remove_item(item):
+    var item_index = items.find(item)
+    
+    # If we are deleting active item, then we need to set active_index to null
+    if item_index == active_index:
+        active_index = null
+    
+    items.erase(item)
+    _refresh_shown_items()
+
 func set_inventory_items(new_items):
     items = new_items
     _refresh_shown_items()
