@@ -2,6 +2,8 @@ extends "res://engine/entity.gd"
 
 onready var inventory = $inventory
 
+const MAXHEALTH = 10
+
 const SPEED = 70
 
 var state = "default"
