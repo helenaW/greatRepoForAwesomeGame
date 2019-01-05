@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 const MAXHEALTH = 2
 const SPEED = 0
 
@@ -12,6 +11,9 @@ var hitstun = 0
 var health = MAXHEALTH
 var sprite_default = null
 var sprite_hurt = null
+
+# Signal that entety changed health
+signal health_changed
 
 func _ready():
     sprite_default = $sprite
@@ -57,6 +59,16 @@ func damage(value, from_direction):
         health -= value
         hitstun = 10
         knockdir = global_transform.origin - from_direction
+
+        emit_signal("health_changed")
+        
+func heal(value):
+    health += value
+    
+    if health > MAXHEALTH:
+        health = MAXHEALTH
+    
+    emit_signal("health_changed")
         
 func spritedir_to_vector():
     match spritedir:
