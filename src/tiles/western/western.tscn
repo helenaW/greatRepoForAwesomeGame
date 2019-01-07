@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://tiles/western/WayCorner.png" type="Texture" id=1]
 [ext_resource path="res://tiles/western/halfWayDown.png" type="Texture" id=2]
@@ -19,19 +19,38 @@
 [ext_resource path="res://tiles/western/stone3.png" type="Texture" id=17]
 [ext_resource path="res://tiles/western/hillBot.png" type="Texture" id=18]
 [ext_resource path="res://tiles/western/hillBotLeft.png" type="Texture" id=19]
-[ext_resource path="res://tiles/western/hillMidRight.png" type="Texture" id=20]
-[ext_resource path="res://tiles/western/hillBotRight.png" type="Texture" id=21]
-[ext_resource path="res://tiles/western/hillTopLeft.png" type="Texture" id=22]
-[ext_resource path="res://tiles/western/hillTop.png" type="Texture" id=23]
-[ext_resource path="res://tiles/western/cactus1.png" type="Texture" id=24]
-[ext_resource path="res://tiles/western/cactusflower.png" type="Texture" id=25]
+[ext_resource path="res://tiles/western/hillBotcurveright.png" type="Texture" id=20]
+[ext_resource path="res://tiles/western/hillBotcurveleft.png" type="Texture" id=21]
+[ext_resource path="res://tiles/western/hillroundbotright.png" type="Texture" id=22]
+[ext_resource path="res://tiles/western/hillroundbotleft.png" type="Texture" id=23]
+[ext_resource path="res://tiles/western/water1.png" type="Texture" id=24]
+[ext_resource path="res://tiles/western/water2.png" type="Texture" id=25]
+[ext_resource path="res://tiles/western/watercurvetopright.png" type="Texture" id=26]
+[ext_resource path="res://tiles/western/wateredgebot1.png" type="Texture" id=27]
+[ext_resource path="res://tiles/western/wateredgebot2.png" type="Texture" id=28]
+[ext_resource path="res://tiles/western/watercurvetopleft.png" type="Texture" id=29]
+[ext_resource path="res://tiles/western/wateredgeright1.png" type="Texture" id=30]
+[ext_resource path="res://tiles/western/wateredgeleft1.png" type="Texture" id=31]
+[ext_resource path="res://tiles/western/wateredgetopleft1.png" type="Texture" id=32]
+[ext_resource path="res://tiles/western/wateredgetoprig1.png" type="Texture" id=33]
+[ext_resource path="res://tiles/western/watercurveright.png" type="Texture" id=34]
+[ext_resource path="res://tiles/western/watercurvebotleft.png" type="Texture" id=35]
+[ext_resource path="res://tiles/western/hillMidRight.png" type="Texture" id=36]
+[ext_resource path="res://tiles/western/hillBotRight.png" type="Texture" id=37]
+[ext_resource path="res://tiles/western/hillTopLeft.png" type="Texture" id=38]
+[ext_resource path="res://tiles/western/hillTop.png" type="Texture" id=39]
+[ext_resource path="res://tiles/western/cactus1.png" type="Texture" id=40]
+[ext_resource path="res://tiles/western/cactusflower.png" type="Texture" id=41]
+[ext_resource path="res://tiles/western/wateredgebotright1.png" type="Texture" id=42]
+[ext_resource path="res://tiles/western/wateredgecorlef1.png" type="Texture" id=43]
+[ext_resource path="res://tiles/western/wateredgetop1.png" type="Texture" id=44]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16.5685, 11.769 )
 
-[node name="western" type="Node" index="0"]
+[node name="western" type="Node"]
 
 [node name="path_corner" type="Sprite" parent="." index="0"]
 
@@ -242,10 +261,90 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 11, -16, 11, -10, 16, -10, 16, 13, 8, 13, 8, -16 )
 
-[node name="hillMidRight" type="Sprite" parent="." index="19"]
+[node name="hillBotcurveright" type="Sprite" parent="." index="19"]
+
+position = Vector2( 48, 176 )
+texture = ExtResource( 20 )
+
+[node name="hillBotcurveleft" type="Sprite" parent="." index="20"]
+
+position = Vector2( 16, 176 )
+texture = ExtResource( 21 )
+
+[node name="hillroundbotright" type="Sprite" parent="." index="21"]
+
+position = Vector2( 48, 208 )
+texture = ExtResource( 22 )
+
+[node name="hillroundbotleft" type="Sprite" parent="." index="22"]
+
+position = Vector2( 16, 208 )
+texture = ExtResource( 23 )
+
+[node name="water1" type="Sprite" parent="." index="23"]
+
+position = Vector2( 48, 304 )
+texture = ExtResource( 24 )
+
+[node name="water2" type="Sprite" parent="." index="24"]
+
+position = Vector2( 80, 304 )
+texture = ExtResource( 25 )
+
+[node name="watercurvetopright" type="Sprite" parent="." index="25"]
+
+position = Vector2( 112, 240 )
+texture = ExtResource( 26 )
+
+[node name="wateredgebot1" type="Sprite" parent="." index="26"]
+
+position = Vector2( 48, 368 )
+texture = ExtResource( 27 )
+
+[node name="wateredgebot2" type="Sprite" parent="." index="27"]
+
+position = Vector2( 80, 368 )
+texture = ExtResource( 28 )
+
+[node name="watercurvetopleft" type="Sprite" parent="." index="28"]
+
+position = Vector2( 16, 240 )
+texture = ExtResource( 29 )
+
+[node name="wateredgeright1" type="Sprite" parent="." index="29"]
+
+position = Vector2( 112, 336 )
+texture = ExtResource( 30 )
+
+[node name="wateredgeleft1" type="Sprite" parent="." index="30"]
+
+position = Vector2( 16, 336 )
+texture = ExtResource( 31 )
+
+[node name="wateredgetopleft1" type="Sprite" parent="." index="31"]
+
+position = Vector2( 16, 272 )
+texture = ExtResource( 32 )
+
+[node name="wateredgetoprig1" type="Sprite" parent="." index="32"]
+
+position = Vector2( 112, 272 )
+texture = ExtResource( 33 )
+
+[node name="watercurveright" type="Sprite" parent="." index="33"]
+
+position = Vector2( 112, 368 )
+texture = ExtResource( 34 )
+
+[node name="watercurvebotleft" type="Sprite" parent="." index="34"]
+
+position = Vector2( 16, 368 )
+texture = ExtResource( 35 )
+
+[node name="hillMidRight" type="Sprite" parent="." index="35"]
 
 position = Vector2( 240, 112 )
-texture = ExtResource( 20 )
+texture = ExtResource( 36 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="hillMidRight" index="0"]
 
@@ -262,10 +361,10 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -10, 16, -10, -16, -9, -16, -9, 16 )
 
-[node name="hillBotRight" type="Sprite" parent="." index="20"]
+[node name="hillBotRight" type="Sprite" parent="." index="36"]
 
 position = Vector2( 240, 144 )
-texture = ExtResource( 21 )
+texture = ExtResource( 37 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="hillBotRight" index="0"]
 
@@ -283,10 +382,10 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( -16, -10, -12, -10, -10, -13, -10, -16, -9, -16, -9, 10, -12, 13, -16, 13 )
 
-[node name="hillTopLeft" type="Sprite" parent="." index="21"]
+[node name="hillTopLeft" type="Sprite" parent="." index="37"]
 
 position = Vector2( 176, 80 )
-texture = ExtResource( 22 )
+texture = ExtResource( 38 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="hillTopLeft" index="0"]
 
@@ -303,10 +402,10 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 16, 9, 9, 9, 8, 10, 8, 16, 10, 16, 10, 11, 11, 10, 16, 10 )
 
-[node name="hillTop" type="Sprite" parent="." index="22"]
+[node name="hillTop" type="Sprite" parent="." index="38"]
 
 position = Vector2( 208, 80 )
-texture = ExtResource( 23 )
+texture = ExtResource( 39 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="hillTop" index="0"]
 
@@ -323,16 +422,31 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -16, 9, 16, 9, 16, 10, -16, 10 )
 
-[node name="cactus" type="Sprite" parent="." index="23"]
+[node name="cactus" type="Sprite" parent="." index="39"]
 
 position = Vector2( 112, 144 )
-texture = ExtResource( 24 )
+texture = ExtResource( 40 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="cactusflower" type="Sprite" parent="." index="24"]
+[node name="cactusflower" type="Sprite" parent="." index="40"]
 
 position = Vector2( 112, 112 )
-texture = ExtResource( 25 )
+texture = ExtResource( 41 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="wateredgebotright1" type="Sprite" parent="." index="41"]
+
+position = Vector2( 112, 304 )
+texture = ExtResource( 42 )
+
+[node name="wateredgecorlef1" type="Sprite" parent="." index="42"]
+
+position = Vector2( 16, 304 )
+texture = ExtResource( 43 )
+
+[node name="wateredgetop1" type="Sprite" parent="." index="43"]
+
+position = Vector2( 48, 240 )
+texture = ExtResource( 44 )
 
 

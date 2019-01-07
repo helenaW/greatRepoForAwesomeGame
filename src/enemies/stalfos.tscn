@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 
-[node name="stalfos" groups=[
+[node name="stalfos" index="0" groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
 
