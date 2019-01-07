@@ -39,11 +39,11 @@
 [ext_resource path="res://tiles/western/hillBotRight.png" type="Texture" id=37]
 [ext_resource path="res://tiles/western/hillTopLeft.png" type="Texture" id=38]
 [ext_resource path="res://tiles/western/hillTop.png" type="Texture" id=39]
-[ext_resource path="res://tiles/western/cactus1.png" type="Texture" id=40]
-[ext_resource path="res://tiles/western/cactusflower.png" type="Texture" id=41]
-[ext_resource path="res://tiles/western/wateredgebotright1.png" type="Texture" id=42]
-[ext_resource path="res://tiles/western/wateredgecorlef1.png" type="Texture" id=43]
-[ext_resource path="res://tiles/western/wateredgetop1.png" type="Texture" id=44]
+[ext_resource path="res://tiles/western/wateredgebotright1.png" type="Texture" id=40]
+[ext_resource path="res://tiles/western/wateredgecorlef1.png" type="Texture" id=41]
+[ext_resource path="res://tiles/western/wateredgetop1.png" type="Texture" id=42]
+[ext_resource path="res://tiles/western/cactus1.png" type="Texture" id=43]
+[ext_resource path="res://tiles/western/cactusflower.png" type="Texture" id=44]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -254,7 +254,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hillBotLeft/StaticBody2D2" index="0"]
 
@@ -266,20 +266,80 @@ polygon = PoolVector2Array( 11, -16, 11, -10, 16, -10, 16, 13, 8, 13, 8, -16 )
 position = Vector2( 48, 176 )
 texture = ExtResource( 20 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="hillBotcurveright" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hillBotcurveright/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, 12, -16, -10, -2, -10, 10, 6, 10, 16, 2, 12 )
+
 [node name="hillBotcurveleft" type="Sprite" parent="." index="20"]
 
 position = Vector2( 16, 176 )
 texture = ExtResource( 21 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="hillBotcurveleft" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hillBotcurveleft/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, -10, 8, -10, -2, -6, -10, 6, -10, 16, -8, 16, -6, 12, 16, 12 )
 
 [node name="hillroundbotright" type="Sprite" parent="." index="21"]
 
 position = Vector2( 48, 208 )
 texture = ExtResource( 22 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="hillroundbotright" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hillroundbotright/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 10, -16, 8, -6, 4, 0, -4, 6, -10, 8, -16, 10, -8, 10, 0, 6, 6, 0, 8, -4, 10, -10 )
+
 [node name="hillroundbotleft" type="Sprite" parent="." index="22"]
 
 position = Vector2( 16, 208 )
 texture = ExtResource( 23 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="hillroundbotleft" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hillroundbotleft/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -10, -16, -10, -12, -8, -4, -6, -2, 0, 4, 10, 10, 16, 10, 8, 8, 0, 2, -6, -4, -8, -8, -8, -16 )
 
 [node name="water1" type="Sprite" parent="." index="23"]
 
@@ -296,50 +356,200 @@ texture = ExtResource( 25 )
 position = Vector2( 112, 240 )
 texture = ExtResource( 26 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="watercurvetopright" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="watercurvetopright/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 4, 16, 4, 0, -16, 0, -16, -6, 6, -6, 6, 16 )
+
 [node name="wateredgebot1" type="Sprite" parent="." index="26"]
 
 position = Vector2( 48, 368 )
 texture = ExtResource( 27 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgebot1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgebot1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, 6, 16, 6, 16, 4, -16, 4 )
 
 [node name="wateredgebot2" type="Sprite" parent="." index="27"]
 
 position = Vector2( 80, 368 )
 texture = ExtResource( 28 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgebot2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgebot2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, 4, -16, 4, -16, 6, 16, 6 )
+
 [node name="watercurvetopleft" type="Sprite" parent="." index="28"]
 
 position = Vector2( 16, 240 )
 texture = ExtResource( 29 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="watercurvetopleft" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="watercurvetopleft/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, 0, -4, 0, -4, 16, -6, 16, -6, -2, -2, -6, 16, -6 )
 
 [node name="wateredgeright1" type="Sprite" parent="." index="29"]
 
 position = Vector2( 112, 336 )
 texture = ExtResource( 30 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgeright1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgeright1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2, -16, 2, 16, 4, 16, 4, -16 )
+
 [node name="wateredgeleft1" type="Sprite" parent="." index="30"]
 
 position = Vector2( 16, 336 )
 texture = ExtResource( 31 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgeleft1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgeleft1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -4, -16, -4, 16, -6, 16, -6, -16 )
 
 [node name="wateredgetopleft1" type="Sprite" parent="." index="31"]
 
 position = Vector2( 16, 272 )
 texture = ExtResource( 32 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgetopleft1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgetopleft1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -6, -16, -6, -10, -8, -8, -12, -6, -16, -6, -16, 0, -8, 0, -4, -4, -4, -16 )
+
 [node name="wateredgetoprig1" type="Sprite" parent="." index="32"]
 
 position = Vector2( 112, 272 )
 texture = ExtResource( 33 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgetoprig1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgetoprig1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 4, -16, 4, -4, 12, 0, 16, 0, 16, -6, 12, -6, 8, -10, 6, -16 )
 
 [node name="watercurveright" type="Sprite" parent="." index="33"]
 
 position = Vector2( 112, 368 )
 texture = ExtResource( 34 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="watercurveright" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="watercurveright/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2, -16, 2, -2, -2, 2, -12, 4, -16, 4, -16, 6, -12, 6, -4, 4, -2, 4, 4, 0, 4, -16 )
+
 [node name="watercurvebotleft" type="Sprite" parent="." index="34"]
 
 position = Vector2( 16, 368 )
 texture = ExtResource( 35 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="watercurvebotleft" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="watercurvebotleft/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -4, -16, -4, -6, 0, -2, 6, 2, 12, 4, 16, 4, 16, 6, 12, 6, 4, 2, -4, -4, -6, -6, -6, -16 )
 
 [node name="hillMidRight" type="Sprite" parent="." index="35"]
 
@@ -422,31 +632,76 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -16, 9, 16, 9, 16, 10, -16, 10 )
 
-[node name="cactus" type="Sprite" parent="." index="39"]
-
-position = Vector2( 112, 144 )
-texture = ExtResource( 40 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="cactusflower" type="Sprite" parent="." index="40"]
-
-position = Vector2( 112, 112 )
-texture = ExtResource( 41 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="wateredgebotright1" type="Sprite" parent="." index="41"]
+[node name="wateredgebotright1" type="Sprite" parent="." index="39"]
 
 position = Vector2( 112, 304 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 
-[node name="wateredgecorlef1" type="Sprite" parent="." index="42"]
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgebotright1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgebotright1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 4, 16, 10, 6, 16, 6, 16, 4, 10, 4, 2, 16 )
+
+[node name="wateredgecorlef1" type="Sprite" parent="." index="40"]
 
 position = Vector2( 16, 304 )
-texture = ExtResource( 43 )
+texture = ExtResource( 41 )
 
-[node name="wateredgetop1" type="Sprite" parent="." index="43"]
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgecorlef1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgecorlef1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -4, 16, -4, 12, -8, 6, -10, 4, -16, 4, -16, 6, -10, 6, -6, 12, -6, 16 )
+
+[node name="wateredgetop1" type="Sprite" parent="." index="41"]
 
 position = Vector2( 48, 240 )
+texture = ExtResource( 42 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="wateredgetop1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateredgetop1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16, 0, 16, 0, 16, -6, -16, -6 )
+
+[node name="cactus" type="Sprite" parent="." index="42"]
+
+position = Vector2( 112, 144 )
+texture = ExtResource( 43 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="cactusflower" type="Sprite" parent="." index="43"]
+
+position = Vector2( 112, 112 )
 texture = ExtResource( 44 )
+_sections_unfolded = [ "Transform" ]
 
 

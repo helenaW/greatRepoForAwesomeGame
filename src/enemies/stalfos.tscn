@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 
-[node name="stalfos" index="0" groups=[
+[node name="stalfos" groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
 
@@ -75,5 +75,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 flip_h = true
 _sections_unfolded = [ "Offset", "Transform" ]
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 
 

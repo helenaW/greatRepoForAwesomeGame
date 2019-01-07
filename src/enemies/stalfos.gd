@@ -29,6 +29,5 @@ func damage_loop():
         death_animation.global_transform = global_transform
         queue_free()
 
-    for area in $hitbox.get_overlapping_areas():
-        var body = area.get_parent()
-        body.damage(DAMAGE, global_transform.origin)
+func _on_hitbox_body_entered(body):
+    body.damage(DAMAGE, global_transform.origin)
