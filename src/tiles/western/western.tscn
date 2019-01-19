@@ -50,7 +50,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16.5685, 11.769 )
 
-[node name="western" type="Node" index="0"]
+[node name="western" type="Node"]
 
 [node name="things" type="Node" parent="." index="0"]
 
@@ -176,8 +176,8 @@ texture = ExtResource( 9 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgebotright1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -197,12 +197,13 @@ texture = ExtResource( 10 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgecorlef1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgecorlef1/StaticBody2D" index="0"]
 
@@ -217,12 +218,13 @@ texture = ExtResource( 11 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgetop1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgetop1/StaticBody2D" index="0"]
 
@@ -247,12 +249,13 @@ texture = ExtResource( 14 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/watercurvetopright" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/watercurvetopright/StaticBody2D" index="0"]
 
@@ -267,12 +270,13 @@ texture = ExtResource( 15 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgebot1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgebot1/StaticBody2D" index="0"]
 
@@ -287,12 +291,13 @@ texture = ExtResource( 16 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgebot2" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgebot2/StaticBody2D" index="0"]
 
@@ -307,12 +312,13 @@ texture = ExtResource( 17 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/watercurvetopleft" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/watercurvetopleft/StaticBody2D" index="0"]
 
@@ -327,12 +333,13 @@ texture = ExtResource( 18 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgeright1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgeright1/StaticBody2D" index="0"]
 
@@ -347,12 +354,13 @@ texture = ExtResource( 19 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgeleft1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgeleft1/StaticBody2D" index="0"]
 
@@ -367,12 +375,13 @@ texture = ExtResource( 20 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgetopleft1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgetopleft1/StaticBody2D" index="0"]
 
@@ -387,12 +396,13 @@ texture = ExtResource( 21 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/wateredgetoprig1" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/wateredgetoprig1/StaticBody2D" index="0"]
 
@@ -407,12 +417,13 @@ texture = ExtResource( 22 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/watercurveright" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/watercurveright/StaticBody2D" index="0"]
 
@@ -427,12 +438,13 @@ texture = ExtResource( 23 )
 [node name="StaticBody2D" type="StaticBody2D" parent="water/watercurvebotleft" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 32
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="water/watercurvebotleft/StaticBody2D" index="0"]
 

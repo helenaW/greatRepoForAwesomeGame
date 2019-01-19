@@ -91,6 +91,7 @@ wasd_inventory=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="items"
 2d_physics/layer_5="projectiles"
+2d_physics/layer_6="projectiles passing obsticles"
 
 [physics]
 

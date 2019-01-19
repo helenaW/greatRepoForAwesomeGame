@@ -28,14 +28,13 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 
-[node name="stalfos" groups=[
+[node name="stalfos" index="0" groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
 
 collision_layer = 4
-collision_mask = 3
+collision_mask = 35
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision" ]
 
 [node name="collision" parent="." index="0"]
 
