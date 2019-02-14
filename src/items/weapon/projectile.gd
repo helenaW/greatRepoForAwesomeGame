@@ -34,4 +34,5 @@ func _on_hitbox_body_entered(body):
     if body.is_in_group('player') and shooter == shooters.ENEMY:
         body.damage(damage, global_transform.origin)
 
+    print(body)
     queue_free()
