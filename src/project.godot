@@ -10,8 +10,8 @@ config_version=3
 
 [application]
 
-config/name="Zelda like"
-run/main_scene="res://main.tscn"
+config/name="Awesome Game"
+run/main_scene="res://ui/start_menu/start_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

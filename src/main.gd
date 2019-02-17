@@ -19,6 +19,9 @@ func _ready():
     player_1_view.set_world_2d(main_view.get_world_2d())
     player_2_view.set_world_2d(main_view.get_world_2d())
     
+    player_1.additional_restore()
+    player_2.additional_restore()
+    
 func load_from_savedata(save_data):
     LOADING_GAME = true
     var level = load(save_data.level).instance()
