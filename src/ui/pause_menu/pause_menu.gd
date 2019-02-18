@@ -4,6 +4,11 @@ var new_game_scene = preload("res://ui/new_game/character_selection.tscn")
 
 onready var main = get_node('/root/main')
 
+func _process(delta):
+    if Input.is_action_just_pressed('game_pause'):
+        get_tree().paused = !get_tree().paused
+        visible = !visible
+
 func show():
     get_tree().paused = true
     visible = true

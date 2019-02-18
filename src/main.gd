@@ -24,10 +24,7 @@ func _ready():
     player_1.additional_restore()
     player_2.additional_restore()
     
-func _process(delta):
-    if Input.is_action_just_pressed('game_pause'):
-        pause_menu.show()
-    
+
 func load_from_savedata(save_data):
     LOADING_GAME = true
     var level = load(save_data.level).instance()
