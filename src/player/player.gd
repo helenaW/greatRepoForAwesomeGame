@@ -1,6 +1,7 @@
 extends "res://engine/entity.gd"
 
 onready var inventory = $inventory
+onready var sprite = $sprite
 
 const MAXHEALTH = 10
 
@@ -23,6 +24,7 @@ func set_active_item(item):
 
     if item != null:
         active_item_scene = item.create_instance()
+        active_item_scene.scale = Vector2(.5, .5)
         add_child(active_item_scene)
     else:
         active_item_scene = null
@@ -120,3 +122,13 @@ Called when save game is restore to "new_game"
 func clear_savedata():
     inventory.active_index = null
     inventory.set_inventory_items([])
+
+"""
+Called by main.gd after everything is loaded and restored...
+"""
+func additional_restore():
+    match keymap:
+        keymaps.arrows:
+            sprite.texture = load("res://characters/" + save_game.save_data.player_one_character + "anim.png")
+        keymaps.wasd:
+            sprite.texture = load("res://characters/" + save_game.save_data.player_two_character + "anim.png")

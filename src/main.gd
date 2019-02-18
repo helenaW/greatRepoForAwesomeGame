@@ -9,6 +9,8 @@ onready var level = $view/level
 onready var player_1 = $view/player_1
 onready var player_2 = $view/player_2
 
+onready var pause_menu = $ui/pause_menu
+
 var LOADING_GAME = false
 
 func _ready():
@@ -18,6 +20,13 @@ func _ready():
     
     player_1_view.set_world_2d(main_view.get_world_2d())
     player_2_view.set_world_2d(main_view.get_world_2d())
+    
+    player_1.additional_restore()
+    player_2.additional_restore()
+    
+func _process(delta):
+    if Input.is_action_just_pressed('game_pause'):
+        pause_menu.show()
     
 func load_from_savedata(save_data):
     LOADING_GAME = true

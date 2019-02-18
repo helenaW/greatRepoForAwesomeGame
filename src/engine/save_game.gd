@@ -4,20 +4,25 @@ var save_data
 var initial_save_data = {
     'level'      : 'levels/begining.tscn',
     'persistent' : {},
-    'first_time' : true
+    'first_time' : true,
+    
+    # TODO: It should meybe have to go somewhere else
+    'player_one_character': null,
+    'player_two_character': null,
 }
 
 var savegame_file = File.new()
 var save_path = "user://savegame.bin"
 
 func _write_to_file():
-    savegame_file.open_encrypted_with_pass(save_path, File.WRITE, OS.get_unique_id())
+    savegame_file.open_encrypted_with_pass(save_path, File.WRITE, "asd")
     savegame_file.store_var(save_data)
     savegame_file.close()
 
 func _read_from_file():
-    savegame_file.open_encrypted_with_pass(save_path, File.READ, OS.get_unique_id())
+    savegame_file.open_encrypted_with_pass(save_path, File.READ, "asd")
     save_data = savegame_file.get_var()
+    savegame_file.close()
 
 """
 Loads save data from save game file
@@ -94,3 +99,9 @@ Stores level to save_data (not saved to disk!)
 func store_level(level):
     save_data.level = level.filename
     
+func set_player_one_character(character):
+    save_data.player_one_character = character
+  
+func set_player_two_character(character):
+    save_data.player_two_character = character
+ 
