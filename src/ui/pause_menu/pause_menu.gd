@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 var new_game_scene = preload("res://ui/new_game/character_selection.tscn")
 
