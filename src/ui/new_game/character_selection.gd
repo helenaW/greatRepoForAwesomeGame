@@ -24,14 +24,17 @@ func _on_player_one_character_selected(index):
     player_one_selected = true
     check_if_ready_to_start_game()
 
+
 func _on_player_two_character_selected(index):
     player_two_selected = true
     check_if_ready_to_start_game()
+
 
 func check_if_ready_to_start_game():
     if player_one_selected and player_two_selected:
         start_game_button.disabled = false
         
+
 func id_to_name(character, id):
     if character == 'one':
         if id == 0:
@@ -44,6 +47,7 @@ func id_to_name(character, id):
             return 'playerf2'
         if id == 1:
             return 'playerm2'
+
 
 func _on_start_game_pressed():
     save_game.delete_savegame()
