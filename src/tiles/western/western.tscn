@@ -507,8 +507,6 @@ texture = ExtResource( 33 )
 
 [node name="hills" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="hillTopRight" type="Sprite" parent="hills" index="0"]
 
 position = Vector2( 240, 80 )
