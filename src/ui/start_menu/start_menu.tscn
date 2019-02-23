@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/start_menu/start_menu.gd" type="Script" id=1]
 
-[node name="start_menu" type="VBoxContainer"]
+[node name="start_menu" type="VBoxContainer" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
