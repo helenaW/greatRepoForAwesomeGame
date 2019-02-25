@@ -4,7 +4,9 @@ func use(player):
     if not projectile:
         print('[Weapon] NO PROJECTILE: ', name)
         return
-        
+
+    $use_effect.playing = true
+
     for angle in [-PI/3, -PI/6, 0, PI/6, PI/3]:
         var new_projectile = projectile.duplicate(Node.DUPLICATE_USE_INSTANCING)
         
@@ -23,13 +25,11 @@ func use(player):
                 if angle < 0:
                     angle -= PI
                 elif angle > 0:
-                    angle += PI
+                    angle += PI    
     
-        print(angle)
-        
         var angle_transofrmation = Transform2D().rotated(angle)
         
         new_projectile.global_position = global_position + direction * distance_from_me
         new_projectile.shoot(angle_transofrmation * direction)
         
-        utils.get_level_node().add_child(new_projectile) 
+        utils.get_level_node().add_child(new_projectile)
