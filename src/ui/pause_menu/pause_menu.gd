@@ -11,11 +11,7 @@ func _process(delta):
     if Input.is_action_just_pressed('game_pause'):
         get_tree().paused = !get_tree().paused
         visible = !visible
-
-func show():
-    get_tree().paused = true
-    visible = true
-
+        close_settings_menu()
 
 func _on_continue_pressed():
     visible = false
