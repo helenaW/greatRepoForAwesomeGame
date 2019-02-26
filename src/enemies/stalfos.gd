@@ -1,7 +1,6 @@
 extends "res://engine/entity.gd"
 
-const SPEED = 40
-const DAMAGE = 1
+export (int) var damage = 1
 
 var movetimer_length = 15
 var movetimer = 0
@@ -29,5 +28,6 @@ func damage_loop():
         death_animation.global_transform = global_transform
         queue_free()
 
-func _on_hitbox_body_entered(body):
-    body.damage(DAMAGE, global_transform.origin)
+func _on_hitbox_area_entered(area):
+    if area.get_parent().is_in_group('player'):
+        area.get_parent().damage(damage, global_transform.origin)

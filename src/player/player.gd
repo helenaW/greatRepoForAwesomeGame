@@ -3,10 +3,6 @@ extends "res://engine/entity.gd"
 onready var inventory = $inventory
 onready var sprite = $sprite
 
-const MAXHEALTH = 10
-
-const SPEED = 70
-
 var state = "default"
 
 enum keymaps {
@@ -57,12 +53,12 @@ func state_default():
             anim_switch("push")
         if spritedir == "down" and test_move(transform , Vector2(0,1)):
             anim_switch("push")
-    
+
     elif movedir != Vector2(0,0):
         anim_switch("walk")
     else:
         anim_switch("idle")
-        
+
     if Input.is_action_just_pressed(get_keymap_name(keymap) + "_use"):
         var item_in_use = inventory.get_item_in_use()
         if item_in_use != null:
@@ -81,10 +77,22 @@ func controls_loop():
     var RIGHT = Input.is_action_pressed(keymap_name + "_right")
     var UP = Input.is_action_pressed(keymap_name + "_up")
     var DOWN = Input.is_action_pressed(keymap_name + "_down")
-    
+
     movedir.x = -int(LEFT) + int(RIGHT)
     movedir.y = -int(UP) + int(DOWN)
-    
+
+func get_facing_areas():
+    # Move facing_hitbox to proper "square"
+    $facing_hitbox.global_transform = global_transform.translated(spritedir_to_vector() * 32)
+    # Check what are we overlapping
+    var overlaping_areas = $facing_hitbox.get_overlapping_areas()
+
+    # Position facing_hitbox back on to entity
+    $facing_hitbox.global_transform = global_transform
+
+    # Rerurn what we found that we are overlapping
+    return overlaping_areas
+
 """
 Store entity (savegame)
 """

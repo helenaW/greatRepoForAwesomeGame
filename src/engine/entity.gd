@@ -1,14 +1,14 @@
 extends KinematicBody2D
 
-const MAXHEALTH = 2
-const SPEED = 0
+export (int) var SPEED = 0
+export (int) var MAX_HEALTH = 2
 
 var movedir = Vector2(0,0)
 var knockdir = Vector2(0,0)
 var spritedir = "down"
 
 var hitstun = 0
-var health = MAXHEALTH
+var health = 0
 var sprite_default = null
 var sprite_hurt = null
 
@@ -16,6 +16,7 @@ var sprite_hurt = null
 signal health_changed
 
 func _ready():
+    health = MAX_HEALTH
     sprite_default = $sprite
     sprite_hurt = $sprite_hurt
     
@@ -65,8 +66,8 @@ func damage(value, from_direction):
 func heal(value):
     health += value
     
-    if health > MAXHEALTH:
-        health = MAXHEALTH
+    if health > MAX_HEALTH:
+        health = MAX_HEALTH
     
     emit_signal("health_changed")
         
@@ -77,18 +78,6 @@ func spritedir_to_vector():
         'up': return Vector2(0,-1)
         'down': return Vector2(0,1)
         _: return Vector2()
-    
-func get_facing_areas():
-    # Move facing_hitbox to proper "square"
-    $facing_hitbox.global_transform = global_transform.translated(spritedir_to_vector() * 32)
-    # Check what are we overlapping
-    var overlaping_areas = $facing_hitbox.get_overlapping_areas()
-    
-    # Position facing_hitbox back on to entity
-    $facing_hitbox.global_transform = global_transform
-    
-    # Rerurn what we found that we are overlapping
-    return overlaping_areas
     
 """
 Store entity

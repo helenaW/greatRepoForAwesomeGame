@@ -21,8 +21,8 @@ func health_to_color(health, max_health):
     return red
 
 func _draw():
-    if player.health != player.MAXHEALTH:
-        draw_circle(Vector2(2.5,2.5), 5, health_to_color(player.health, player.MAXHEALTH))
+    if player.health != player.MAX_HEALTH:
+        draw_circle(Vector2(2.5,2.5), 5, health_to_color(player.health, player.MAX_HEALTH))
 
 func _on_player_health_changed():
     update()

@@ -133,8 +133,6 @@ position = Vector2( 1659.05, 245.364 )
 
 [node name="enemies" type="Node" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="stalfos2" parent="enemies" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 2000, 544 )
@@ -164,9 +162,17 @@ position = Vector2( 1520, 256 )
 
 position = Vector2( 1504, 144 )
 
-[node name="stalfos8" parent="enemies" index="7" instance=ExtResource( 4 )]
+[node name="stalfos9" parent="enemies" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 1557.19, 130.704 )
+
+[node name="stalfos8" parent="enemies" index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 1632, 144 )
+
+[node name="stalfos10" parent="enemies" index="9" instance=ExtResource( 4 )]
+
+position = Vector2( 1448.07, 116.853 )
 
 [node name="items" type="Node" parent="." index="5"]
 
@@ -195,23 +201,13 @@ rotation = -0.00227175
 position = Vector2( 1102.9, 228.238 )
 rotation = -0.00227175
 
-[node name="gun" parent="items" index="5" groups=[
-"persistant",
-] instance=ExtResource( 9 )]
+[node name="gun" parent="items" index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 1168, 288 )
-pickable = true
-usages = 1
-multiple_uses = true
 
-[node name="shotgun" parent="items" index="6" groups=[
-"persistant",
-] instance=ExtResource( 10 )]
+[node name="shotgun" parent="items" index="6" instance=ExtResource( 10 )]
 
 position = Vector2( 1638.94, 329.064 )
-pickable = true
-usages = 1
-multiple_uses = true
 
 [node name="interactable" type="Node" parent="." index="6"]
 

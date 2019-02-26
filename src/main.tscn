@@ -7,7 +7,7 @@
 [ext_resource path="res://debug/player_inventory.gd" type="Script" id=5]
 [ext_resource path="res://ui/pause_menu/pause_menu.tscn" type="PackedScene" id=6]
 
-[node name="main" type="Node2D" index="0"]
+[node name="main" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -212,10 +212,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -561.0
-margin_top = -824.0
-margin_right = -561.0
-margin_bottom = -824.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -234,6 +230,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="pause_menu" parent="ui" index="2" instance=ExtResource( 6 )]
 

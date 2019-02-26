@@ -1,61 +1,47 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://engine/entity.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 4 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+extents = Vector2( 10, 16 )
 
 [node name="entity" type="KinematicBody2D" groups=[
 "persistant",
 ]]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
+collision_mask = 37
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+SPEED = 0
+MAX_HEALTH = 2
 
 [node name="collision" type="CollisionShape2D" parent="." index="0"]
 
+position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
-[node name="facing_hitbox" type="Area2D" parent="." index="1"]
+[node name="hitbox" type="Area2D" parent="." index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 0
+collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
-
-[node name="collision" type="CollisionShape2D" parent="facing_hitbox" index="0"]
-
-shape = SubResource( 2 )
-
-[node name="hitbox" type="Area2D" parent="." index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="collision" type="CollisionShape2D" parent="hitbox" index="0"]
 
