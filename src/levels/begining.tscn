@@ -196,23 +196,13 @@ rotation = -0.00227175
 position = Vector2( 1102.9, 228.238 )
 rotation = -0.00227175
 
-[node name="gun" parent="items" index="5" groups=[
-"persistant",
-] instance=ExtResource( 9 )]
+[node name="gun" parent="items" index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 1168, 288 )
-pickable = true
-usages = 1
-multiple_uses = true
 
-[node name="shotgun" parent="items" index="6" groups=[
-"persistant",
-] instance=ExtResource( 10 )]
+[node name="shotgun" parent="items" index="6" instance=ExtResource( 10 )]
 
 position = Vector2( 1638.94, 329.064 )
-pickable = true
-usages = 1
-multiple_uses = true
 
 [node name="interactable" type="Node" parent="." index="6"]
 
@@ -245,13 +235,13 @@ lock = NodePath("..")
 
 position = Vector2( 576, 96 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+[node name="ambient_sound" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 15 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "Ambient"
 
 
