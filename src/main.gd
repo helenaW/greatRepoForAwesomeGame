@@ -9,11 +9,14 @@ onready var level = $view/level
 onready var player_1 = $view/player_1
 onready var player_2 = $view/player_2
 
-onready var pause_menu = $ui/pause_menu
+onready var ui_viewport = $ui/viewport
+onready var ui_node = $ui
 
 var LOADING_GAME = false
 
 func _ready():
+    settings.connect("settings_change", self, "_on_settings_change")
+    
     var save_data = save_game.load_savegame()
     
     load_from_savedata(save_data)
@@ -24,6 +27,14 @@ func _ready():
     player_1.additional_restore()
     player_2.additional_restore()
     
+func apply_viewport_resolution():
+    player_1_view.size = settings.settings_data.resolution
+    player_2_view.size = settings.settings_data.resolution
+    main_view.size = settings.settings_data.resolution
+    ui_viewport.rect_size = settings.settings_data.resolution
+    ui_node.rect_size = settings.settings_data.resolution
+    # TODO: Each node should resize itself, we shouldnt set all the ui elemnts from here!
+    # But the problem is that then every node needs to listen on "settings_change" event...
 
 func load_from_savedata(save_data):
     LOADING_GAME = true
@@ -52,3 +63,6 @@ func switch_level(new_level):
     level = new_level
     
     level.start_level(player_1, player_2)
+
+func _on_settings_change():
+    apply_viewport_resolution()

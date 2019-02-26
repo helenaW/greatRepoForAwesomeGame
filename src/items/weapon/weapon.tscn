@@ -13,4 +13,13 @@ collision_layer = 8
 collision_mask = 0
 _sections_unfolded = [ "Collision" ]
 
+[node name="use_effect" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Effects"
+
 

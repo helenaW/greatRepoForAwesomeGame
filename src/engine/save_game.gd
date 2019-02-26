@@ -30,7 +30,7 @@ Loads save data from save game file
 func load_savegame():
     if not savegame_file.file_exists(save_path):
         print('[SaveGame] Loading from disk - NEW')
-        initial_savedata()
+        initialize_savedata()
         _write_to_file()
     else:
         print('[SaveGame] Loading from disk - EXISTING')
@@ -50,13 +50,13 @@ Writes fresh save_data to save game file
 """
 func delete_savegame():
     print('[SaveGame] Deleting from disk')
-    initial_savedata()
+    initialize_savedata()
     _write_to_file()
 
 """
 Initializes save_data. Used when creating new game
 """
-func initial_savedata():
+func initialize_savedata():
     print('[SaveGame] Initializing SaveData')
     save_data = initial_save_data.duplicate()
     

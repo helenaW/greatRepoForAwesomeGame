@@ -20,15 +20,17 @@ dir="*res://engine/directions.gd"
 save_game="*res://engine/save_game.gd"
 ItemObject="*res://items/ItemObject.gd"
 utils="*res://engine/utils.gd"
+settings="*res://engine/settings.gd"
 
 [display]
 
 window/size/width=1600
 window/size/height=900
+window/size/resizable=false
 window/size/test_width=1600
 window/size/test_height=900
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [importer_defaults]
 

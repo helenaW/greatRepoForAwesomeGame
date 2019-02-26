@@ -14,7 +14,9 @@ func use(player):
     if not projectile:
         print('[Weapon] NO PROJECTILE: ', name)
         return
-    
+
+    $use_effect.playing = true
+
     var new_projectile = projectile.duplicate(Node.DUPLICATE_USE_INSTANCING)
     
     var direction = player.spritedir_to_vector()
@@ -24,5 +26,5 @@ func use(player):
     new_projectile.shoot(direction)
     
     utils.get_level_node().add_child(new_projectile)
-
+    
 
