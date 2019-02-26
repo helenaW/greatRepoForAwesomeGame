@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/start_menu/start_menu.gd" type="Script" id=1]
+[ext_resource path="res://ui/settings_menu/settings_menu.tscn" type="PackedScene" id=2]
 
-[node name="start_menu" type="VBoxContainer"]
+[node name="start_menu" type="Control"]
 
 pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Margin", "Pause", "Theme" ]
+
+[node name="start_menu" type="VBoxContainer" parent="." index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -20,10 +36,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "Theme" ]
+_sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="title" type="Label" parent="." index="0"]
+[node name="title" type="Label" parent="start_menu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -43,7 +58,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="load_game" type="Button" parent="." index="1"]
+[node name="load_game" type="Button" parent="start_menu" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -67,7 +82,7 @@ text = "Load Game"
 flat = false
 align = 1
 
-[node name="new_game" type="Button" parent="." index="2"]
+[node name="new_game" type="Button" parent="start_menu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -91,7 +106,7 @@ text = "New Game"
 flat = false
 align = 1
 
-[node name="exit" type="Button" parent="." index="3"]
+[node name="settings" type="Button" parent="start_menu" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -111,14 +126,44 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+text = "Settings"
+flat = false
+align = 1
+
+[node name="exit" type="Button" parent="start_menu" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 90.0
+margin_right = 1100.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 text = "Exit"
 flat = false
 align = 1
 
-[connection signal="pressed" from="load_game" to="." method="_on_load_game_pressed"]
+[node name="settings_menu" parent="." index="1" instance=ExtResource( 2 )]
 
-[connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
+visible = false
 
-[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="start_menu/load_game" to="." method="_on_load_game_pressed"]
+
+[connection signal="pressed" from="start_menu/new_game" to="." method="_on_new_game_pressed"]
+
+[connection signal="pressed" from="start_menu/settings" to="." method="open_settings_menu"]
+
+[connection signal="pressed" from="start_menu/exit" to="." method="_on_exit_pressed"]
 
 

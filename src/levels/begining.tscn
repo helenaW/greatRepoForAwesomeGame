@@ -16,7 +16,7 @@
 [ext_resource path="res://items/key/key.tscn" type="PackedScene" id=14]
 [ext_resource path="res://levels/wind_coyote.ogg" type="AudioStream" id=15]
 
-[node name="level" index="0" instance=ExtResource( 1 )]
+[node name="level" instance=ExtResource( 1 )]
 
 [node name="western_map" type="TileMap" parent="." index="0"]
 
@@ -83,7 +83,6 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="projectile_passing_obsticles" type="TileMap" parent="western_map" index="2"]
 
-visible = false
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
@@ -196,13 +195,23 @@ rotation = -0.00227175
 position = Vector2( 1102.9, 228.238 )
 rotation = -0.00227175
 
-[node name="gun" parent="items" index="5" instance=ExtResource( 9 )]
+[node name="gun" parent="items" index="5" groups=[
+"persistant",
+] instance=ExtResource( 9 )]
 
 position = Vector2( 1168, 288 )
+pickable = true
+usages = 1
+multiple_uses = true
 
-[node name="shotgun" parent="items" index="6" instance=ExtResource( 10 )]
+[node name="shotgun" parent="items" index="6" groups=[
+"persistant",
+] instance=ExtResource( 10 )]
 
 position = Vector2( 1638.94, 329.064 )
+pickable = true
+usages = 1
+multiple_uses = true
 
 [node name="interactable" type="Node" parent="." index="6"]
 

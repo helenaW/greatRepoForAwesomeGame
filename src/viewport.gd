@@ -14,9 +14,6 @@ var draw_player_2_view = false
 var angle = 0
 var player_distance = 0
 
-var window_height = 900
-var window_width = 1600
-
 func det(a, b):
     return a.x * b.y - a.y * b.x
 
@@ -100,15 +97,15 @@ func _draw():
         Color(1,1,1),
     ]
     var rect = [
-        [Vector2(0,0), Vector2(0,window_height)],
-        [Vector2(0,window_height), Vector2(window_width,window_height)],
-        [Vector2(window_width,window_height), Vector2(window_width,0)],
-        [Vector2(window_width,0), Vector2(0,0)],
+        [Vector2(0,0), Vector2(0,rect_size.y)],
+        [Vector2(0,rect_size.y), Vector2(rect_size.x,rect_size.y)],
+        [Vector2(rect_size.x,rect_size.y), Vector2(rect_size.x,0)],
+        [Vector2(rect_size.x,0), Vector2(0,0)],
     ]
     
     var seperator_line = [
-        Vector2(window_width/2, window_height/2),
-        Vector2(-1, 0).rotated(angle) * window_width
+        Vector2(rect_size.x/2, rect_size.y/2),
+        Vector2(-1, 0).rotated(angle) * rect_size.x
     ]
     var split_points = []
     var static_split_points = [Vector2(), Vector2()]
@@ -117,7 +114,7 @@ func _draw():
     
     for index in range(rect.size()):
         var point = line_intersection(seperator_line, rect[index])
-        if point.x <= window_width and point.x >= 0 and point.y <= window_height and point.y >= 0:
+        if point.x <= rect_size.x and point.x >= 0 and point.y <= rect_size.y and point.y >= 0:
             if intersect_a == null:
                 intersect_a = point
             else:
@@ -130,9 +127,9 @@ func _draw():
     #  |  |
     #  ----
     ###
-    if intersect_a.x == 0 and intersect_b.x == window_width and player_2.position.y < player_1.position.y:
+    if intersect_a.x == 0 and intersect_b.x == rect_size.x and player_2.position.y < player_1.position.y:
         #print('AA<')
-        static_split_points[1].x = window_width
+        static_split_points[1].x = rect_size.x
         split_points = [
             static_split_points[0],
             intersect_a,
@@ -141,8 +138,8 @@ func _draw():
         ]
         uvs_split = [
             Vector2(0,0),
-            Vector2(0,intersect_a.y/window_height),
-            Vector2(1,intersect_b.y/window_height),
+            Vector2(0,intersect_a.y/rect_size.y),
+            Vector2(1,intersect_b.y/rect_size.y),
             Vector2(1,0),
         ]
         
@@ -153,11 +150,11 @@ func _draw():
     #  |  |
     #  0--1
     ###
-    elif intersect_a.x == 0 and intersect_b.x == window_width and player_2.position.y > player_1.position.y:
+    elif intersect_a.x == 0 and intersect_b.x == rect_size.x and player_2.position.y > player_1.position.y:
         #print('AA>')
-        static_split_points[0].y = window_height
-        static_split_points[1].x = window_width
-        static_split_points[1].y = window_height
+        static_split_points[0].y = rect_size.y
+        static_split_points[1].x = rect_size.x
+        static_split_points[1].y = rect_size.y
         split_points = [
             intersect_a,
             static_split_points[0],
@@ -165,10 +162,10 @@ func _draw():
             intersect_b,
         ]
         uvs_split = [
-            Vector2(0,intersect_a.y/window_height),
+            Vector2(0,intersect_a.y/rect_size.y),
             Vector2(0,1),
             Vector2(1,1),
-            Vector2(1,intersect_b.y/window_height),
+            Vector2(1,intersect_b.y/rect_size.y),
         ]
 
     ###
@@ -176,11 +173,11 @@ func _draw():
     #  |  |  |
     #  ---a--1
     ###
-    elif intersect_b.y == 0 and intersect_a.y == window_height and player_2.position.x > player_1.position.x:
+    elif intersect_b.y == 0 and intersect_a.y == rect_size.y and player_2.position.x > player_1.position.x:
         #print('BB>')
-        static_split_points[0].x = window_width
-        static_split_points[1].x = window_width
-        static_split_points[1].y = window_height
+        static_split_points[0].x = rect_size.x
+        static_split_points[1].x = rect_size.x
+        static_split_points[1].y = rect_size.y
         split_points = [
             intersect_b,
             intersect_a,
@@ -188,8 +185,8 @@ func _draw():
             static_split_points[0],
         ]
         uvs_split = [
-            Vector2(intersect_b.x/window_width,0),
-            Vector2(intersect_a.x/window_width,1),
+            Vector2(intersect_b.x/rect_size.x,0),
+            Vector2(intersect_a.x/rect_size.x,1),
             Vector2(1,1),
             Vector2(1,0),
         ]
@@ -199,9 +196,9 @@ func _draw():
     #  |  |  |
     #  1--a---
     ###
-    elif intersect_b.y == 0 and intersect_a.y == window_height and player_2.position.x < player_1.position.x:
+    elif intersect_b.y == 0 and intersect_a.y == rect_size.y and player_2.position.x < player_1.position.x:
         #print('BB<')
-        static_split_points[1].y = window_height
+        static_split_points[1].y = rect_size.y
         split_points = [
             static_split_points[0],
             static_split_points[1],
@@ -211,17 +208,17 @@ func _draw():
         uvs_split = [
             Vector2(0,0),
             Vector2(0,1),
-            Vector2(intersect_a.x/window_width,1),
-            Vector2(intersect_b.x/window_width,0),
+            Vector2(intersect_a.x/rect_size.x,1),
+            Vector2(intersect_b.x/rect_size.x,0),
         ]
 
     # Draw player_1 view
     draw_primitive(
         [
             Vector2(0,0),
-            Vector2(0,window_height),
-            Vector2(window_width,window_height),
-            Vector2(window_width,0),
+            Vector2(0,rect_size.y),
+            Vector2(rect_size.x,rect_size.y),
+            Vector2(rect_size.x,0),
         ],
         colors,
         uvs,
