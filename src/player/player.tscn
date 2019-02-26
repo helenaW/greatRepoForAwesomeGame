@@ -7,24 +7,23 @@
 [ext_resource path="res://player/inventory/inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/health.gd" type="Script" id=6]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 4 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 16 )
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 
-resource_name = "idledown"
 length = 1.0
 loop = true
 step = 0.5
@@ -53,9 +52,8 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 
-resource_name = "idleleft"
 length = 1.0
 loop = true
 step = 0.5
@@ -72,9 +70,8 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
 
-resource_name = "idleright"
 length = 1.0
 loop = true
 step = 0.5
@@ -91,9 +88,8 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=7]
 
-resource_name = "idleup"
 length = 1.0
 loop = true
 step = 0.5
@@ -110,9 +106,8 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 
-resource_name = "pushdown"
 length = 1.0
 loop = true
 step = 0.5
@@ -129,9 +124,8 @@ tracks/0/keys = {
 "values": [ 8, 9 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 
-resource_name = "pushleft"
 length = 1.0
 loop = true
 step = 0.5
@@ -148,9 +142,8 @@ tracks/0/keys = {
 "values": [ 14, 15 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 
-resource_name = "pushright"
 length = 1.0
 loop = true
 step = 0.5
@@ -167,9 +160,8 @@ tracks/0/keys = {
 "values": [ 12, 13 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 
-resource_name = "pushup"
 length = 1.0
 loop = true
 step = 0.5
@@ -186,67 +178,9 @@ tracks/0/keys = {
 "values": [ 10, 11 ]
 }
 
-[sub_resource type="Animation" id=9]
-
-resource_name = "walkdown"
-length = 1.5
-loop = true
-step = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.00176001, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 0, 2 ]
-}
-
-[sub_resource type="Animation" id=10]
-
-resource_name = "walkleft"
-length = 1.5
-loop = true
-step = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 3, 5 ]
-}
-
-[sub_resource type="Animation" id=11]
-
-resource_name = "walkright"
-length = 1.5
-loop = true
-step = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 10, 9, 11 ]
-}
-
 [sub_resource type="Animation" id=12]
 
-resource_name = "walkup"
-length = 1.5
+length = 2.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -256,13 +190,67 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 7, 6, 8 ]
+"values": [ 1, 0, 2, 0 ]
 }
 
-[node name="player" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=13]
+
+length = 2.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 5, 3 ]
+}
+
+[sub_resource type="Animation" id=14]
+
+length = 2.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 9, 11, 9 ]
+}
+
+[sub_resource type="Animation" id=15]
+
+length = 2.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 6, 8, 6 ]
+}
+
+[node name="player" index="0" instance=ExtResource( 1 )]
 
 collision_layer = 2
 collision_mask = 47
@@ -272,7 +260,7 @@ keymap = null
 [node name="collision" parent="." index="0"]
 
 position = Vector2( 0, 12 )
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="facing_hitbox" parent="." index="1"]
@@ -282,7 +270,7 @@ collision_mask = 15
 
 [node name="collision" parent="facing_hitbox" index="0"]
 
-shape = SubResource( 14 )
+shape = SubResource( 2 )
 
 [node name="hitbox" parent="." index="2"]
 
@@ -292,7 +280,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="collision" parent="hitbox" index="0"]
 
-shape = SubResource( 15 )
+shape = SubResource( 3 )
 
 [node name="anim" type="AnimationPlayer" parent="." index="3"]
 
@@ -301,18 +289,18 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 4.0
-anims/idledown = SubResource( 1 )
-anims/idleleft = SubResource( 2 )
-anims/idleright = SubResource( 3 )
-anims/idleup = SubResource( 4 )
-anims/pushdown = SubResource( 5 )
-anims/pushleft = SubResource( 6 )
-anims/pushright = SubResource( 7 )
-anims/pushup = SubResource( 8 )
-anims/walkdown = SubResource( 9 )
-anims/walkleft = SubResource( 10 )
-anims/walkright = SubResource( 11 )
-anims/walkup = SubResource( 12 )
+anims/idledown = SubResource( 4 )
+anims/idleleft = SubResource( 5 )
+anims/idleright = SubResource( 6 )
+anims/idleup = SubResource( 7 )
+anims/pushdown = SubResource( 8 )
+anims/pushleft = SubResource( 9 )
+anims/pushright = SubResource( 10 )
+anims/pushup = SubResource( 11 )
+anims/walkdown = SubResource( 12 )
+anims/walkleft = SubResource( 13 )
+anims/walkright = SubResource( 14 )
+anims/walkup = SubResource( 15 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
