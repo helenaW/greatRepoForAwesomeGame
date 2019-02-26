@@ -245,7 +245,7 @@ tracks/0/keys = {
 "values": [ 7, 6, 8, 6 ]
 }
 
-[node name="player" index="0" groups=[
+[node name="player" groups=[
 "player",
 ] instance=ExtResource( 1 )]
 

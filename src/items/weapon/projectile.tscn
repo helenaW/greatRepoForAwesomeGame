@@ -13,7 +13,9 @@ extents = Vector2( 8, 8 )
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="projectile" type="RigidBody2D"]
+[node name="projectile" type="RigidBody2D" index="0" groups=[
+"projectile",
+]]
 
 input_pickable = false
 collision_layer = 16
@@ -67,6 +69,6 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 
 

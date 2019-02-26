@@ -25,8 +25,9 @@ func _physics_process(delta):
 func shoot(direction):
     linear_velocity = direction * speed
     was_shoot = true
-    
-func _on_hitbox_body_entered(body):
+
+func _on_hitbox_area_entered(area):
+    var body = area.get_parent()
     
     if body.is_in_group('enemy') and shooter == shooters.PLAYER:
         body.damage(damage, global_transform.origin)
@@ -34,5 +35,4 @@ func _on_hitbox_body_entered(body):
     if body.is_in_group('player') and shooter == shooters.ENEMY:
         body.damage(damage, global_transform.origin)
 
-    print(body)
     queue_free()
