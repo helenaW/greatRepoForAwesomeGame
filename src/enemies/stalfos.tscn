@@ -1,9 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://engine/entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/stalfos.gd" type="Script" id=2]
 [ext_resource path="res://enemies/cowboy_walk_zombie.png" type="Texture" id=3]
 [ext_resource path="res://enemies/stalfaux_hurt.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 16 )
 
 [sub_resource type="Animation" id=1]
 
@@ -52,12 +62,18 @@ damage = 1
 
 [node name="collision" parent="." index="0"]
 
+position = Vector2( 0, 12 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="hitbox" parent="." index="1"]
 
 collision_layer = 4
 collision_mask = 2
+
+[node name="collision" parent="hitbox" index="0"]
+
+shape = SubResource( 5 )
 
 [node name="anim" type="AnimationPlayer" parent="." index="2"]
 
