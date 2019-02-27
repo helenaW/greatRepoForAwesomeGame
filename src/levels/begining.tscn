@@ -1,22 +1,23 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/western/western.tres" type="TileSet" id=2]
 [ext_resource path="res://tiles/dev_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://enemies/stalfos.tscn" type="PackedScene" id=4]
-[ext_resource path="res://items/sword/sword.tscn" type="PackedScene" id=5]
-[ext_resource path="res://items/coin/coin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://items/apple/apple.tscn" type="PackedScene" id=7]
-[ext_resource path="res://items/heart/heart.tscn" type="PackedScene" id=8]
-[ext_resource path="res://items/weapon/gun/gun.tscn" type="PackedScene" id=9]
-[ext_resource path="res://items/weapon/shotgun/shotgun.tscn" type="PackedScene" id=10]
-[ext_resource path="res://tiles/door/door.tscn" type="PackedScene" id=11]
-[ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=12]
-[ext_resource path="res://tiles/lock/lock.tscn" type="PackedScene" id=13]
-[ext_resource path="res://items/key/key.tscn" type="PackedScene" id=14]
-[ext_resource path="res://levels/wind_coyote.ogg" type="AudioStream" id=15]
+[ext_resource path="res://enemies/walker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://items/sword/sword.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/coin/coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://items/apple/apple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/heart/heart.tscn" type="PackedScene" id=9]
+[ext_resource path="res://items/weapon/gun/gun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/weapon/shotgun/shotgun.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tiles/door/door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://tiles/teleport/teleport.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tiles/lock/lock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://items/key/key.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/wind_coyote.ogg" type="AudioStream" id=16]
 
-[node name="level" instance=ExtResource( 1 )]
+[node name="level" index="0" instance=ExtResource( 1 )]
 
 [node name="western_map" type="TileMap" parent="." index="0"]
 
@@ -174,38 +175,45 @@ position = Vector2( 1632, 144 )
 
 position = Vector2( 1448.07, 116.853 )
 
+[node name="walker" parent="enemies" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 1213.9, 184.3 )
+SPEED = 10
+MAX_HEALTH = 3
+damage = 3
+
 [node name="items" type="Node" parent="." index="5"]
 
 editor/display_folded = true
 
-[node name="sword" parent="items" index="0" instance=ExtResource( 5 )]
+[node name="sword" parent="items" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 1027.18, 295.263 )
 rotation = -1.5708
 
-[node name="coin" parent="items" index="1" instance=ExtResource( 6 )]
+[node name="coin" parent="items" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 1040, 192 )
 
-[node name="apple" parent="items" index="2" instance=ExtResource( 7 )]
+[node name="apple" parent="items" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 976, 176 )
 
-[node name="heart" parent="items" index="3" instance=ExtResource( 8 )]
+[node name="heart" parent="items" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( 1072, 128 )
 rotation = -0.00227175
 
-[node name="heart2" parent="items" index="4" instance=ExtResource( 8 )]
+[node name="heart2" parent="items" index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 1102.9, 228.238 )
 rotation = -0.00227175
 
-[node name="gun" parent="items" index="5" instance=ExtResource( 9 )]
+[node name="gun" parent="items" index="5" instance=ExtResource( 10 )]
 
 position = Vector2( 1168, 288 )
 
-[node name="shotgun" parent="items" index="6" instance=ExtResource( 10 )]
+[node name="shotgun" parent="items" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 1638.94, 329.064 )
 
@@ -213,28 +221,28 @@ position = Vector2( 1638.94, 329.064 )
 
 editor/display_folded = true
 
-[node name="exit" parent="interactable" index="0" instance=ExtResource( 11 )]
+[node name="exit" parent="interactable" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 1904, 464 )
 
-[node name="teleport" parent="interactable/exit" index="2" instance=ExtResource( 12 )]
+[node name="teleport" parent="interactable/exit" index="2" instance=ExtResource( 13 )]
 
 [node name="point" type="Position2D" parent="interactable/exit/teleport" index="1"]
 
 position = Vector2( -576, -96 )
 
-[node name="enterance" parent="interactable" index="1" instance=ExtResource( 11 )]
+[node name="enterance" parent="interactable" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 1328, 400 )
 
-[node name="lock" parent="interactable/enterance" index="0" instance=ExtResource( 13 )]
+[node name="lock" parent="interactable/enterance" index="0" instance=ExtResource( 14 )]
 
-[node name="key" parent="interactable/enterance/lock" index="1" instance=ExtResource( 14 )]
+[node name="key" parent="interactable/enterance/lock" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 208, -112 )
 lock = NodePath("..")
 
-[node name="teleport" parent="interactable/enterance" index="4" instance=ExtResource( 12 )]
+[node name="teleport" parent="interactable/enterance" index="4" instance=ExtResource( 13 )]
 
 [node name="point" type="Position2D" parent="interactable/enterance/teleport" index="1"]
 
@@ -242,7 +250,7 @@ position = Vector2( 576, 96 )
 
 [node name="ambient_sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
