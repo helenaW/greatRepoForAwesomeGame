@@ -44,7 +44,7 @@ class item_object:
            }
 
         
-func create(scene_path, name, usages, multiple_uses):
+static func create(scene_path, name, usages, multiple_uses):
     var item = item_object.new()
     item.scene_path = scene_path
     item.name = name
