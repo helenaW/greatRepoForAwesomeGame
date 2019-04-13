@@ -3,238 +3,83 @@
 [ext_resource path="res://ui/new_game/character_selection.gd" type="Script" id=1]
 
 [node name="character_selection" type="VBoxContainer"]
-
 pause_mode = 2
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 250.0
 margin_top = 50.0
 margin_right = -250.0
 margin_bottom = -50.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "Rect" ]
 
-[node name="title" type="Label" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="title" type="Label" parent="."]
 margin_right = 1100.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "New Game - Character Selection"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="picker" type="HBoxContainer" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="picker" type="HBoxContainer" parent="."]
 margin_top = 18.0
 margin_right = 1100.0
 margin_bottom = 45.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="player_one" type="VBoxContainer" parent="picker" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="player_one" type="VBoxContainer" parent="picker"]
 margin_right = 544.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
 
-[node name="Label" type="Label" parent="picker/player_one" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="picker/player_one"]
 margin_right = 544.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Player One"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="characters" type="ItemList" parent="picker/player_one" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="characters" type="ItemList" parent="picker/player_one"]
 margin_top = 18.0
 margin_right = 544.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-items = [  ]
-select_mode = 0
 allow_reselect = true
 auto_height = true
 max_columns = 2
 same_column_width = true
-icon_mode = 1
 icon_scale = 5.0
-fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Columns", "Icon", "Size Flags", "custom_styles" ]
 
-[node name="VSeparator" type="VSeparator" parent="picker" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSeparator" type="VSeparator" parent="picker"]
 margin_left = 548.0
 margin_right = 552.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="player_two" type="VBoxContainer" parent="picker" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="player_two" type="VBoxContainer" parent="picker"]
 margin_left = 556.0
 margin_right = 1100.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
 
-[node name="Label" type="Label" parent="picker/player_two" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="picker/player_two"]
 margin_right = 544.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Player Two"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="characters" type="ItemList" parent="picker/player_two" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="characters" type="ItemList" parent="picker/player_two"]
 margin_top = 18.0
 margin_right = 544.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-items = [  ]
-select_mode = 0
 allow_reselect = true
 auto_height = true
 max_columns = 2
 same_column_width = true
-icon_mode = 1
 icon_scale = 5.0
-fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Columns", "Icon", "Size Flags" ]
 
-[node name="start_game" type="Button" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="start_game" type="Button" parent="."]
 margin_top = 49.0
 margin_right = 1100.0
 margin_bottom = 69.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Start Game"
-flat = false
-align = 1
 
 [connection signal="item_selected" from="picker/player_one/characters" to="." method="_on_player_one_character_selected"]
-
 [connection signal="item_selected" from="picker/player_two/characters" to="." method="_on_player_two_character_selected"]
-
 [connection signal="pressed" from="start_game" to="." method="_on_start_game_pressed"]
-
-

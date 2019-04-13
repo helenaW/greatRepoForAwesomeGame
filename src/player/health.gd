@@ -6,7 +6,7 @@ const green = Color("#17A733")
 const yellow = Color("#FFD019")
 const red = Color("#9E1D07")
 
-func health_to_color(health, max_health):
+func health_to_color(health: float, max_health: float) -> Color:
     var health_percentage = health * 1.0/max_health
     
     # Green

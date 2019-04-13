@@ -14,7 +14,7 @@ export (keymaps) var keymap = keymaps.arrows
 
 onready var active_item_scene = null
 
-func set_active_item(item):
+func set_active_item(item) -> void:
     if active_item_scene:
         active_item_scene.queue_free()
 
@@ -31,7 +31,7 @@ func get_keymap_name(keymap):
         keymaps.arrows: return 'arrows'
         _: return null
 
-func _physics_process(delta):
+func _physics_process(delta: float):
     match state:
         "default":
             state_default()
@@ -112,14 +112,20 @@ func store_savedata():
 """
 Restore entity (savegame)
 """
-func restore_savedata(data):
+func restore_savedata(data) -> void:
     .restore_savedata(data)
     
     inventory.active_index = data.inventory.active_index
     
     var items = []
     for item in data.inventory.items:
-        items.append(ItemObject.restore_savedata(item))
+        var inventory_item = InventoryItem.new()
+        inventory_item.scene_path = item.scene_path
+        inventory_item.name = item.name
+        inventory_item.usages = item.usages
+        inventory_item.multiple_uses = item.multiple_uses
+        inventory_item.custom = item.custom
+        items.append(inventory_item)
         
     inventory.set_inventory_items(items)
 
@@ -127,14 +133,14 @@ func restore_savedata(data):
 Clears node to "fresh" state.
 Called when save game is restore to "new_game"
 """
-func clear_savedata():
+func clear_savedata() -> void:
     inventory.active_index = null
     inventory.set_inventory_items([])
 
 """
 Called by main.gd after everything is loaded and restored...
 """
-func additional_restore():
+func additional_restore() -> void:
     match keymap:
         keymaps.arrows:
             sprite.texture = load("res://characters/" + save_game.save_data.player_one_character + "anim.png")

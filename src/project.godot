@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "InventoryItem",
+"language": "GDScript",
+"path": "res://player/inventory/inventory_item.gd"
+} ]
 _global_script_class_icons={
-
+"InventoryItem": ""
 }
 
 [application]
@@ -23,7 +28,6 @@ config/icon="res://icon.png"
 
 dir="*res://engine/directions.gd"
 save_game="*res://engine/save_game.gd"
-ItemObject="*res://items/ItemObject.gd"
 utils="*res://engine/utils.gd"
 settings="*res://engine/settings.gd"
 

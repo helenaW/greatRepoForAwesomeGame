@@ -4,39 +4,20 @@
 [ext_resource path="res://items/item.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
 [node name="item" type="Node2D" groups=[
 "persistant",
 ]]
-
 script = ExtResource( 1 )
-pickable = true
-usages = 1
-multiple_uses = true
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
+[node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="pickable" type="Area2D" parent="." index="1"]
+[node name="pickable" type="Area2D" parent="."]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="collision" type="CollisionShape2D" parent="pickable" index="0"]
-
+[node name="collision" type="CollisionShape2D" parent="pickable"]
 rotation = -0.000501963
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="pickable" to="." method="add_to_inventory_event"]
-
-

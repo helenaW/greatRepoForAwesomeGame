@@ -55,7 +55,7 @@ func damage_loop():
         sprite_default.visible = true
         sprite_hurt.visible = false
 
-func damage(value, from_direction):
+func damage(value: float, from_direction: Vector2):
     if hitstun == 0:
         health -= value
         hitstun = 10
@@ -63,7 +63,7 @@ func damage(value, from_direction):
 
         emit_signal("health_changed")
         
-func heal(value):
+func heal(value: float):
     health += value
     
     if health > MAX_HEALTH:

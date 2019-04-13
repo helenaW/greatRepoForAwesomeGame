@@ -24,7 +24,7 @@ export (bool) var multiple_uses = true
 Should be used by Area2D to send event on "body_entered",
 this way it can be added to inventory if pickable
 """
-func add_to_inventory_event(body):
+func add_to_inventory_event(body: PhysicsBody2D):
     if pickable and (body.name == "player_1" || body.name =="player_2"):
         if not main.LOADING_GAME:
             store(body.inventory)
@@ -47,7 +47,7 @@ func use(player):
 It restores Item to what is saved in inventory
 Can be extended by items, if they have some custom properties that need to be restored
 """
-func restore(item_object):
+func restore(item_object: InventoryItem) -> void:
     print('[Item] Restoring from item_object: ', name)
     usages = item_object.usages
     multiple_uses = item_object.multiple_uses
@@ -59,21 +59,23 @@ Restore custom information, this should be extended by items if they need
 to restore custom information
 Should be used in combination with "store_additional"
 """
-func restore_custom(item_object):
+func restore_custom(item_object: InventoryItem) -> void:
     pass
 
 """
 It stores current item state to inventory
 """
-func store(inventory):
+func store(inventory) -> void:
     print('[Item] Storing to inventory: ', filename, ' - ', name)
-    var item_object = ItemObject.create(
-        filename,
-        name,
-        usages,
-        multiple_uses)
-    store_custom(item_object)
-    inventory.items.append(item_object)
+
+    var item = InventoryItem.new()
+    item.scene_path = filename
+    item.name = name
+    item.usages = usages
+    item.multiple_uses = multiple_uses
+
+    store_custom(item)
+    inventory.items.append(item)
 
 """
 Store custom information, this should be extended by items if they need
@@ -81,7 +83,7 @@ to store custom information
 
 Should be used in combination with "restore_additional"
 """
-func store_custom(item_object):
+func store_custom(item_object: InventoryItem):
     pass
     
 """
@@ -97,4 +99,3 @@ Restore entity (savegame)
 """
 func restore_savedata(data):
     position = data.position
-    

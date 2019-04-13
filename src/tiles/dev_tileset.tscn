@@ -6,94 +6,43 @@
 [ext_resource path="res://tiles/yellow.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="green" type="Sprite" parent="." index="0"]
-
+[node name="green" type="Sprite" parent="."]
 position = Vector2( 8, 8 )
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="green" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="green"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="green/StaticBody2D" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="green/StaticBody2D"]
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="pink" type="Sprite" parent="." index="1"]
-
+[node name="pink" type="Sprite" parent="."]
 position = Vector2( 40, 8 )
 texture = ExtResource( 2 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="pink" index="0"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="pink"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pink/StaticBody2D2" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pink/StaticBody2D2"]
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="red" type="Sprite" parent="." index="2"]
-
+[node name="red" type="Sprite" parent="."]
 position = Vector2( 8, 40 )
 texture = ExtResource( 3 )
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="red" index="0"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="red"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="red/StaticBody2D3" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red/StaticBody2D3"]
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="yellow" type="Sprite" parent="." index="3"]
-
+[node name="yellow" type="Sprite" parent="."]
 position = Vector2( 40, 40 )
 texture = ExtResource( 4 )
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="yellow" index="0"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="yellow"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="yellow/StaticBody2D4" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="yellow/StaticBody2D4"]
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
 

@@ -12,5 +12,4 @@ func _on_new_game_pressed():
 
 
 func _on_load_game_pressed():
-    
     main.load_from_savedata(save_game.load_savegame())    

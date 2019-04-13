@@ -8,7 +8,7 @@ var keymap
 var items = []
 var active_index = null
 
-var visible_for = 0
+var visible_for: float = 0
 
 func _ready():
     set_process(true)
@@ -16,24 +16,24 @@ func _ready():
         keymap = player.keymap
     
 
-func get_item_in_use():
+func get_item_in_use() -> InventoryItem:
     if active_index != null and active_index < items.size():
         return items[active_index]
     return null
 
-func get_item_by_name(item_name):
+func get_item_by_name(item_name) -> InventoryItem:
     for item in items:
         if item.name == item_name:
             return item
     return null
     
-func remove_item_by_name(item_name):
+func remove_item_by_name(item_name) -> void:
     print('[Inventory] Remove item: ', item_name)
     var item = get_item_by_name(item_name)
     if item != null:
         remove_item(item)
         
-func remove_item(item):
+func remove_item(item) -> void:
     var item_index = items.find(item)
     
     # If we are deleting active item, then we need to set active_index to null
@@ -43,15 +43,15 @@ func remove_item(item):
     items.erase(item)
     _refresh_shown_items()
 
-func set_inventory_items(new_items):
+func set_inventory_items(new_items) -> void:
     items = new_items
     _refresh_shown_items()
     
-func set_selected_item(index):
+func set_selected_item(index: int) -> void:
     active_index = index
     _refresh_shown_items()
         
-func _refresh_shown_items():
+func _refresh_shown_items() -> void:
     if !items.empty():
         if active_index == null or active_index >= items.size()-1:
             active_index = 0
@@ -83,7 +83,7 @@ func _refresh_shown_items():
         
     player.set_active_item(get_item_in_use())
 
-func _process(delta):
+func _process(delta: float) -> void:
     var keymap_name = player.get_keymap_name(keymap)
     
     # If we picked up an item, we set it as active

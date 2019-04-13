@@ -14,12 +14,12 @@ var initial_save_data = {
 var savegame_file = File.new()
 var save_path = "user://savegame.bin"
 
-func _write_to_file():
+func _write_to_file() -> void:
     savegame_file.open_encrypted_with_pass(save_path, File.WRITE, "asd")
     savegame_file.store_var(save_data)
     savegame_file.close()
 
-func _read_from_file():
+func _read_from_file() -> void:
     savegame_file.open_encrypted_with_pass(save_path, File.READ, "asd")
     save_data = savegame_file.get_var()
     savegame_file.close()
@@ -41,14 +41,14 @@ func load_savegame():
 """
 Writes save_data to save game file
 """
-func write_savegame():
+func write_savegame() -> void:
     print('[SaveGame] Writing to disk')
     _write_to_file()
 
 """
 Writes fresh save_data to save game file
 """
-func delete_savegame():
+func delete_savegame() -> void:
     print('[SaveGame] Deleting from disk')
     initialize_savedata()
     _write_to_file()
@@ -56,16 +56,17 @@ func delete_savegame():
 """
 Initializes save_data. Used when creating new game
 """
-func initialize_savedata():
+func initialize_savedata() -> void:
     print('[SaveGame] Initializing SaveData')
     save_data = initial_save_data.duplicate()
     
 #    for node in get_tree().get_nodes_in_group("persistant"):
 #        save_data.persistent[node.name] = node.store_savedata()
+
 """
 Stores all persistant nodes
 """
-func store_savedata():
+func store_savedata() -> void:
     save_data.persistent = {}
     save_data.first_time = false
     for node in get_tree().get_nodes_in_group("persistant"):
@@ -74,9 +75,7 @@ func store_savedata():
 """
 Restore all persitant nodes
 """
-func restore_savedata(save_data):
-    var main_node = get_node("/root/main")
-    
+func restore_savedata(save_data) -> void:
     print('[SaveGame] Restoring from save_data')
     for node in get_tree().get_nodes_in_group("persistant"):
         if save_data.persistent.has(node.name):
@@ -96,12 +95,12 @@ func restore_savedata(save_data):
 """
 Stores level to save_data (not saved to disk!)
 """
-func store_level(level):
+func store_level(level) -> void:
     save_data.level = level.filename
     
-func set_player_one_character(character):
+func set_player_one_character(character) -> void:
     save_data.player_one_character = character
   
-func set_player_two_character(character):
+func set_player_two_character(character) -> void:
     save_data.player_two_character = character
  
